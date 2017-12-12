@@ -18,6 +18,4 @@ Route::get('/', function () {
 });
 */
 
-Route::get('/', function () {
-    return view('layouts.default');
-});
+Route::get('/', 'HomeController@index')->name('home');

@@ -33,7 +33,7 @@
 		</nav>
 
 		<div class="container">
-
+			<?= $content ?>
 		</div>
 
 		<script type="text/javascript" src="./js/jquery-3.2.1.min.js"></script>
