@@ -4,8 +4,9 @@ namespace App\Http\Controllers;
 
 class HomeController extends Controller {
 
-    public function index() {
-        return $this->render('home.index');
+    public function index()
+    {
+        return $this->render('consumption.childSearch');
     }
 
 }
