@@ -30,3 +30,66 @@ body {
 .navbar .dropdown-content > li > a {
     width: 100%;
 }
+
+/*admin homepage*/
+
+.collapsible-header
+{
+  line-height: 35px !important;
+  font-size: 35px !important;
+}
+
+.collapsible-header i
+{
+  line-height: inherit !important;
+  font-size: inherit !important;
+  margin-right: 35px !important;
+
+}
+
+/*leftborder*/
+.left-border
+{
+  background-color: #795548;
+
+  position : absolute !important;
+  height: 100%;
+  top: 64px !important;
+  left: 0 !important;
+
+  color: #FFFFFF;
+
+  width: 245px !important;
+  font-size: 25px;
+  text-align: center;
+
+}
+
+@media (max-width: 1620px)
+{
+  .left-border
+  {
+    font-size: 20px;
+    width: 200px !important;
+  }
+}
+@media (max-width: 1297px)
+{
+  .left-border
+  {
+    font-size: 15px;
+    width: 150px !important;
+  }
+}
+@media (max-width: 1000px)
+{
+  .left-border
+  {
+    visibility: hidden;
+  }
+}
+
+.smallPicker
+{
+  width: 70px !important;
+}
