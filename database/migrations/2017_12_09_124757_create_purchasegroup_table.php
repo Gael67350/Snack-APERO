@@ -17,6 +17,7 @@ class CreatePurchasegroupTable extends Migration {
 			$table->integer('id_purchase', true);
 			$table->date('transactionDate');
 			$table->float('totalPrice', 10, 0);
+            $table->integer('id_user')->index('FK_purchasegroup_id_user');
 		});
 	}
 
