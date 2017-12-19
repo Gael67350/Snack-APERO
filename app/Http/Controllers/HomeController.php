@@ -6,7 +6,7 @@ class HomeController extends Controller {
 
     public function index()
     {
-        return $this->render('consumption.childSearch');
+        return $this->render('home.indexUser');
     }
 
 }
