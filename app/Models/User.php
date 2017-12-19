@@ -18,11 +18,11 @@ class User extends Model {
     public $timestamps = false;
 
     public function children() {
-        return $this->hasMany('App\Models\Child', 'id_child');
+        return $this->hasMany('App\Models\Child', 'id_user');
     }
 
     public function purchases() {
-        return $this->hasMany('App\Models\Purchase', 'id_purchase');
+        return $this->hasMany('App\Models\Purchase', 'id_user');
     }
 
     public function setPasswordAttribute($value) {

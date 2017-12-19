@@ -17,7 +17,7 @@ class Category extends Model {
     public $timestamps = false;
 
     public function children() {
-        return $this->hasMany('App\Models\Child', 'id_child');
+        return $this->hasMany('App\Models\Child', 'id_category');
     }
 
 }

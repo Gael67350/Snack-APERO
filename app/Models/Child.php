@@ -31,11 +31,11 @@ class Child extends Model {
     }
 
     public function inflows() {
-        return $this->hasMany('App\Models\Inflow', 'id_inflow');
+        return $this->hasMany('App\Models\Inflow', 'id_child');
     }
 
     public function consumptions() {
-        return $this->hasMany('App\Models\Consumption', 'id_consumption');
+        return $this->hasMany('App\Models\Consumption', 'id_child');
     }
 
     public function setLastNameAttribute($value) {
