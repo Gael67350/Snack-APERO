@@ -20,19 +20,19 @@ class DatabaseSeeder extends Seeder {
         DB::table('category')->insert(['name' => 'minime']);
         DB::table('category')->insert(['name' => 'cadet']);
 
-        DB::table('user')->insert(['email' => $faker->email, 'phone' => '0153623590', 'password' => substr(md5($faker->password(30)), 0, 30), 'privilege' => 0]);
-        DB::table('user')->insert(['email' => $faker->email, 'phone' => '0243673289', 'password' => substr(md5($faker->password(30)), 0, 30), 'privilege' => 2]);
-        DB::table('user')->insert(['email' => $faker->email, 'phone' => '0327402746', 'password' => substr(md5($faker->password(30)), 0, 30), 'privilege' => 2]);
-        DB::table('user')->insert(['email' => $faker->email, 'phone' => '0625485032', 'password' => substr(md5($faker->password(30)), 0, 30), 'privilege' => 2]);
-        DB::table('user')->insert(['email' => $faker->email, 'phone' => '0667894523', 'password' => substr(md5($faker->password(30)), 0, 30), 'privilege' => 2]);
-        DB::table('user')->insert(['email' => $faker->email, 'phone' => '0743542314', 'password' => substr(md5($faker->password(30)), 0, 30), 'privilege' => 2]);
-        DB::table('user')->insert(['email' => $faker->email, 'phone' => '0732431243', 'password' => substr(md5($faker->password(30)), 0, 30), 'privilege' => 2]);
-        DB::table('user')->insert(['email' => $faker->email, 'phone' => '0123543254', 'password' => substr(md5($faker->password(30)), 0, 30), 'privilege' => 2]);
-        DB::table('user')->insert(['email' => $faker->email, 'phone' => '0243645232', 'password' => substr(md5($faker->password(30)), 0, 30), 'privilege' => 2]);
-        DB::table('user')->insert(['email' => $faker->email, 'phone' => '0243645232', 'password' => substr(md5($faker->password(30)), 0, 30), 'privilege' => 2]);
-        DB::table('user')->insert(['email' => $faker->email, 'phone' => '0123543254', 'password' => substr(md5($faker->password(30)), 0, 30), 'privilege' => 1]);
-        DB::table('user')->insert(['email' => $faker->email, 'phone' => '0243645232', 'password' => substr(md5($faker->password(30)), 0, 30), 'privilege' => 1]);
-        DB::table('user')->insert(['email' => $faker->email, 'phone' => '0375496475', 'password' => substr(md5($faker->password(30)), 0, 30), 'privilege' => 2]);
+        DB::table('user')->insert(['email' => $faker->email, 'phone' => '0153623590', 'password' => hash('sha256', $faker->password(rand(8,30))), 'privilege' => 0]);
+        DB::table('user')->insert(['email' => $faker->email, 'phone' => '0243673289', 'password' => hash('sha256', $faker->password(rand(8,30))), 'privilege' => 2]);
+        DB::table('user')->insert(['email' => $faker->email, 'phone' => '0327402746', 'password' => hash('sha256', $faker->password(rand(8,30))), 'privilege' => 2]);
+        DB::table('user')->insert(['email' => $faker->email, 'phone' => '0625485032', 'password' => hash('sha256', $faker->password(rand(8,30))), 'privilege' => 2]);
+        DB::table('user')->insert(['email' => $faker->email, 'phone' => '0667894523', 'password' => hash('sha256', $faker->password(rand(8,30))), 'privilege' => 2]);
+        DB::table('user')->insert(['email' => $faker->email, 'phone' => '0743542314', 'password' => hash('sha256', $faker->password(rand(8,30))), 'privilege' => 2]);
+        DB::table('user')->insert(['email' => $faker->email, 'phone' => '0732431243', 'password' => hash('sha256', $faker->password(rand(8,30))), 'privilege' => 2]);
+        DB::table('user')->insert(['email' => $faker->email, 'phone' => '0123543254', 'password' => hash('sha256', $faker->password(rand(8,30))), 'privilege' => 2]);
+        DB::table('user')->insert(['email' => $faker->email, 'phone' => '0243645232', 'password' => hash('sha256', $faker->password(rand(8,30))), 'privilege' => 2]);
+        DB::table('user')->insert(['email' => $faker->email, 'phone' => '0243645232', 'password' => hash('sha256', $faker->password(rand(8,30))), 'privilege' => 2]);
+        DB::table('user')->insert(['email' => $faker->email, 'phone' => '0123543254', 'password' => hash('sha256', $faker->password(rand(8,30))), 'privilege' => 1]);
+        DB::table('user')->insert(['email' => $faker->email, 'phone' => '0243645232', 'password' => hash('sha256', $faker->password(rand(8,30))), 'privilege' => 1]);
+        DB::table('user')->insert(['email' => $faker->email, 'phone' => '0375496475', 'password' => hash('sha256', $faker->password(rand(8,30))), 'privilege' => 2]);
 
         DB::table('child')->insert(['lastName' => 'toto', 'name' => 'henry', 'birthDate' => '2011-04-1', 'id_category' => 1, 'id_user' => 2]);
         DB::table('child')->insert(['lastName' => 'titi', 'name' => 'jean paul', 'birthDate' => '2012-02-13', 'id_category' => 1, 'id_user' => 3]);
