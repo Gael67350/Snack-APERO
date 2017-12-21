@@ -1,14 +1,14 @@
-/*
-    Main
- */
+/* Main */
 
 body {
     background-color: #FAFAFA;
 }
 
-/*
-    Navbar
- */
+.input-checkbox {
+    margin: 10px 0;
+}
+
+/* Navbar */
 
 .navbar .nav-user a {
     display: inline-block;
@@ -31,65 +31,100 @@ body {
     width: 100%;
 }
 
-/*admin homepage*/
+/* Form box */
 
-.collapsible-header
-{
-  line-height: 35px !important;
-  font-size: 35px !important;
+.form-box {
+    width: 450px;
+    margin: 200px auto 0 auto;
+    padding: 20px 30px 10px 30px;
+
+    border: 1px solid rgba(0, 0, 0, .08);
+    border-radius: 4px;
+    background-color: rgba(0, 0, 0, .05);
 }
 
-.collapsible-header i
-{
-  line-height: inherit !important;
-  font-size: inherit !important;
-  margin-right: 35px !important;
+.form-box .title {
+    font-size: 2.28rem;
+    font-weight: 400;
+    line-height: 110%;
+    margin: 1.14rem 0 .912rem 0;
+}
+
+.form-box [type="checkbox"]:checked + label:before {
+    border-right-color: #4caf50;
+    border-bottom-color: #4caf50;
+}
+
+/* Messages */
+
+.messages {
+    margin: 15px 0;
+    color: #f44336;
+}
+
+/* Admin homepage */
+
+.collapsible-header {
+    line-height: 35px !important;
+    font-size: 35px !important;
+}
+
+.collapsible-header i {
+    line-height: inherit !important;
+    font-size: inherit !important;
+    margin-right: 35px !important;
 
 }
 
-/*leftborder*/
-.left-border
-{
-  background-color: #795548;
+/* Leftborder */
+.left-border {
+    background-color: #795548;
 
-  position : absolute !important;
-  height: 100%;
-  top: 64px !important;
-  left: 0 !important;
+    position: absolute !important;
+    height: 100%;
+    top: 64px !important;
+    left: 0 !important;
 
-  color: #FFFFFF;
+    color: #FFFFFF;
 
-  width: 245px !important;
-  font-size: 25px;
-  text-align: center;
+    width: 245px !important;
+    font-size: 25px;
+    text-align: center;
 
 }
 
-@media (max-width: 1620px)
-{
-  .left-border
-  {
-    font-size: 20px;
-    width: 200px !important;
-  }
-}
-@media (max-width: 1297px)
-{
-  .left-border
-  {
-    font-size: 15px;
-    width: 150px !important;
-  }
-}
-@media (max-width: 1000px)
-{
-  .left-border
-  {
-    visibility: hidden;
-  }
+@media (max-width: 1620px) {
+    .left-border {
+        font-size: 20px;
+        width: 200px !important;
+    }
 }
 
-.smallPicker
-{
-  width: 70px !important;
+@media (max-width: 1297px) {
+    .left-border {
+        font-size: 15px;
+        width: 150px !important;
+    }
+}
+
+@media (max-width: 1000px) {
+    .left-border {
+        visibility: hidden;
+    }
+}
+
+@media (max-width: 510px) {
+    .form-box {
+        width: 100%;
+        margin-top: 50px;
+    }
+
+    .brand-logo {
+        text-align: center;
+        width: 100%;
+    }
+}
+
+.smallPicker {
+    width: 70px !important;
 }

@@ -21,6 +21,9 @@ class CreateUserTable extends Migration {
 			$table->integer('privilege');
 			$table->string('remember_token', 100)->nullable();
 		});
+
+        // Add admin account with email "admin@example.com" and password "admin"
+        DB::table('user')->insert(['email' => 'admin@example.com', 'phone' => '0000000000', 'password' => Hash::make('admin'), 'privilege' => 0]);
 	}
 
 

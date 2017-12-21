@@ -1,7 +1,7 @@
 <?php
 
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Seeder;
-use \Illuminate\Database\Eloquent\Model;
 
 class DatabaseSeeder extends Seeder {
     /**
@@ -20,33 +20,33 @@ class DatabaseSeeder extends Seeder {
         DB::table('category')->insert(['name' => 'minime']);
         DB::table('category')->insert(['name' => 'cadet']);
 
-        DB::table('user')->insert(['email' => $faker->email, 'phone' => '0153623590', 'password' => hash('sha256', $faker->password(rand(8,30))), 'privilege' => 0]);
-        DB::table('user')->insert(['email' => $faker->email, 'phone' => '0243673289', 'password' => hash('sha256', $faker->password(rand(8,30))), 'privilege' => 2]);
-        DB::table('user')->insert(['email' => $faker->email, 'phone' => '0327402746', 'password' => hash('sha256', $faker->password(rand(8,30))), 'privilege' => 2]);
-        DB::table('user')->insert(['email' => $faker->email, 'phone' => '0625485032', 'password' => hash('sha256', $faker->password(rand(8,30))), 'privilege' => 2]);
-        DB::table('user')->insert(['email' => $faker->email, 'phone' => '0667894523', 'password' => hash('sha256', $faker->password(rand(8,30))), 'privilege' => 2]);
-        DB::table('user')->insert(['email' => $faker->email, 'phone' => '0743542314', 'password' => hash('sha256', $faker->password(rand(8,30))), 'privilege' => 2]);
-        DB::table('user')->insert(['email' => $faker->email, 'phone' => '0732431243', 'password' => hash('sha256', $faker->password(rand(8,30))), 'privilege' => 2]);
-        DB::table('user')->insert(['email' => $faker->email, 'phone' => '0123543254', 'password' => hash('sha256', $faker->password(rand(8,30))), 'privilege' => 2]);
-        DB::table('user')->insert(['email' => $faker->email, 'phone' => '0243645232', 'password' => hash('sha256', $faker->password(rand(8,30))), 'privilege' => 2]);
-        DB::table('user')->insert(['email' => $faker->email, 'phone' => '0243645232', 'password' => hash('sha256', $faker->password(rand(8,30))), 'privilege' => 2]);
-        DB::table('user')->insert(['email' => $faker->email, 'phone' => '0123543254', 'password' => hash('sha256', $faker->password(rand(8,30))), 'privilege' => 1]);
-        DB::table('user')->insert(['email' => $faker->email, 'phone' => '0243645232', 'password' => hash('sha256', $faker->password(rand(8,30))), 'privilege' => 1]);
-        DB::table('user')->insert(['email' => $faker->email, 'phone' => '0375496475', 'password' => hash('sha256', $faker->password(rand(8,30))), 'privilege' => 2]);
+        DB::table('user')->insert(['email' => $faker->email, 'phone' => '0153623590', 'password' => hash('sha256', $faker->password(rand(8, 30))), 'privilege' => 0]);
+        DB::table('user')->insert(['email' => $faker->email, 'phone' => '0243673289', 'password' => hash('sha256', $faker->password(rand(8, 30))), 'privilege' => 2]);
+        DB::table('user')->insert(['email' => $faker->email, 'phone' => '0327402746', 'password' => hash('sha256', $faker->password(rand(8, 30))), 'privilege' => 2]);
+        DB::table('user')->insert(['email' => $faker->email, 'phone' => '0625485032', 'password' => hash('sha256', $faker->password(rand(8, 30))), 'privilege' => 2]);
+        DB::table('user')->insert(['email' => $faker->email, 'phone' => '0667894523', 'password' => hash('sha256', $faker->password(rand(8, 30))), 'privilege' => 2]);
+        DB::table('user')->insert(['email' => $faker->email, 'phone' => '0743542314', 'password' => hash('sha256', $faker->password(rand(8, 30))), 'privilege' => 2]);
+        DB::table('user')->insert(['email' => $faker->email, 'phone' => '0732431243', 'password' => hash('sha256', $faker->password(rand(8, 30))), 'privilege' => 2]);
+        DB::table('user')->insert(['email' => $faker->email, 'phone' => '0123543254', 'password' => hash('sha256', $faker->password(rand(8, 30))), 'privilege' => 2]);
+        DB::table('user')->insert(['email' => $faker->email, 'phone' => '0243645232', 'password' => hash('sha256', $faker->password(rand(8, 30))), 'privilege' => 2]);
+        DB::table('user')->insert(['email' => $faker->email, 'phone' => '0243645232', 'password' => hash('sha256', $faker->password(rand(8, 30))), 'privilege' => 2]);
+        DB::table('user')->insert(['email' => $faker->email, 'phone' => '0123543254', 'password' => hash('sha256', $faker->password(rand(8, 30))), 'privilege' => 1]);
+        DB::table('user')->insert(['email' => $faker->email, 'phone' => '0243645232', 'password' => hash('sha256', $faker->password(rand(8, 30))), 'privilege' => 1]);
+        DB::table('user')->insert(['email' => $faker->email, 'phone' => '0375496475', 'password' => hash('sha256', $faker->password(rand(8, 30))), 'privilege' => 2]);
 
-        DB::table('child')->insert(['lastName' => 'toto', 'name' => 'henry', 'birthDate' => '2011-04-1', 'id_category' => 1, 'id_user' => 2]);
-        DB::table('child')->insert(['lastName' => 'titi', 'name' => 'jean paul', 'birthDate' => '2012-02-13', 'id_category' => 1, 'id_user' => 3]);
-        DB::table('child')->insert(['lastName' => 'tata', 'name' => 'yvon', 'birthDate' => '2013-03-05', 'id_category' => 1, 'id_user' => 4]);
-        DB::table('child')->insert(['lastName' => 'tutu', 'name' => 'yvain', 'birthDate' => '2005-04-22', 'id_category' => 2, 'id_user' => 5]);
-        DB::table('child')->insert(['lastName' => 'luc', 'name' => 'gauvin', 'birthDate' => '2008-06-24', 'id_category' => 2, 'id_user' => 6]);
-        DB::table('child')->insert(['lastName' => 'depain', 'name' => 'gustan', 'birthDate' => '2007-07-12', 'id_category' => 2, 'id_user' => 7]);
-        DB::table('child')->insert(['lastName' => 'dupont', 'name' => 'augustine', 'birthDate' => '2004-10-04', 'id_category' => 3, 'id_user' => 8]);
-        DB::table('child')->insert(['lastName' => 'dupont', 'name' => 'paulette', 'birthDate' => '2003-06-1', 'id_category' => 3, 'id_user' => 8]);
-        DB::table('child')->insert(['lastName' => 'herlant', 'name' => 'jean', 'birthDate' => '2002-11-05', 'id_category' => 3, 'id_user' => 9]);
-        DB::table('child')->insert(['lastName' => 'arnaud', 'name' => 'jean', 'birthDate' => '2013-11-05', 'id_category' => 1, 'id_user' => 10]);
-        DB::table('child')->insert(['lastName' => 'valjean', 'name' => 'jean', 'birthDate' => '2008-11-05', 'id_category' => 2, 'id_user' => 10]);
-        DB::table('child')->insert(['lastName' => 'padargent', 'name' => 'paul', 'birthDate' => '2008-11-05', 'id_category' => 2, 'id_user' => 13]);
-        DB::table('child')->insert(['lastName' => 'padargent', 'name' => 'jacques', 'birthDate' => '2008-11-05', 'id_category' => 2, 'id_user' => 13]);
+        DB::table('child')->insert(['lastName' => 'toto', 'name' => 'henry', 'birthDate' => '2011-04-1', 'id_category' => 1, 'id_user' => 3]);
+        DB::table('child')->insert(['lastName' => 'titi', 'name' => 'jean paul', 'birthDate' => '2012-02-13', 'id_category' => 1, 'id_user' => 4]);
+        DB::table('child')->insert(['lastName' => 'tata', 'name' => 'yvon', 'birthDate' => '2013-03-05', 'id_category' => 1, 'id_user' => 5]);
+        DB::table('child')->insert(['lastName' => 'tutu', 'name' => 'yvain', 'birthDate' => '2005-04-22', 'id_category' => 2, 'id_user' => 6]);
+        DB::table('child')->insert(['lastName' => 'luc', 'name' => 'gauvin', 'birthDate' => '2008-06-24', 'id_category' => 2, 'id_user' => 7]);
+        DB::table('child')->insert(['lastName' => 'depain', 'name' => 'gustan', 'birthDate' => '2007-07-12', 'id_category' => 2, 'id_user' => 8]);
+        DB::table('child')->insert(['lastName' => 'dupont', 'name' => 'augustine', 'birthDate' => '2004-10-04', 'id_category' => 3, 'id_user' => 9]);
+        DB::table('child')->insert(['lastName' => 'dupont', 'name' => 'paulette', 'birthDate' => '2003-06-1', 'id_category' => 3, 'id_user' => 9]);
+        DB::table('child')->insert(['lastName' => 'herlant', 'name' => 'jean', 'birthDate' => '2002-11-05', 'id_category' => 3, 'id_user' => 10]);
+        DB::table('child')->insert(['lastName' => 'arnaud', 'name' => 'jean', 'birthDate' => '2013-11-05', 'id_category' => 1, 'id_user' => 11]);
+        DB::table('child')->insert(['lastName' => 'valjean', 'name' => 'jean', 'birthDate' => '2008-11-05', 'id_category' => 2, 'id_user' => 11]);
+        DB::table('child')->insert(['lastName' => 'padargent', 'name' => 'paul', 'birthDate' => '2008-11-05', 'id_category' => 2, 'id_user' => 14]);
+        DB::table('child')->insert(['lastName' => 'padargent', 'name' => 'jacques', 'birthDate' => '2008-11-05', 'id_category' => 2, 'id_user' => 14]);
 
         DB::table('product')->insert(['name' => 'paquet de bonbon', 'price' => 1.50, 'minQuantity' => 15]);
         DB::table('product')->insert(['name' => 'canette', 'price' => 1.50, 'minQuantity' => 10]);
@@ -137,9 +137,9 @@ class DatabaseSeeder extends Seeder {
         DB::table('consumption')->insert(['transactionDate' => '2017-10-22', 'id_child' => 11]);
         DB::table('consumption')->insert(['transactionDate' => '2017-10-8', 'id_child' => 13]);
 
-        DB::table('purchasegroup')->insert(['transactionDate' => '2017-09-03', 'totalPrice' => 200.00, 'id_user' => 1]);
-        DB::table('purchasegroup')->insert(['transactionDate' => '2017-09-10', 'totalPrice' => 100.00, 'id_user' => 2]);
-        DB::table('purchasegroup')->insert(['transactionDate' => '2017-09-17', 'totalPrice' => 150.00, 'id_user' => 1]);
+        DB::table('purchasegroup')->insert(['transactionDate' => '2017-09-03', 'totalPrice' => 200.00, 'id_user' => 2]);
+        DB::table('purchasegroup')->insert(['transactionDate' => '2017-09-10', 'totalPrice' => 100.00, 'id_user' => 3]);
+        DB::table('purchasegroup')->insert(['transactionDate' => '2017-09-17', 'totalPrice' => 150.00, 'id_user' => 2]);
 
         DB::table('purchase')->insert(['quantity' => 116, 'id_product' => 1, 'id_purchase' => 1]);
         DB::table('purchase')->insert(['quantity' => 15, 'id_product' => 1, 'id_purchase' => 2]);
