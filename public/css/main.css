@@ -128,3 +128,8 @@ body {
 .smallPicker {
     width: 70px !important;
 }
+
+.borderedContent
+{
+  margin: 25px;
+}

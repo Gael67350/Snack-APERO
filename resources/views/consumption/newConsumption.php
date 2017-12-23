@@ -105,4 +105,6 @@
         </tr>
       </tbody>
     </table>
+
+    <button class="waves-effect waves-light btn btn-spaced" name="button"> Valider la consommation </button>
 </form>
