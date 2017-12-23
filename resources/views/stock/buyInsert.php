@@ -1,9 +1,18 @@
 <div class="left-border">
-   <p> gestion du stock </p>
-   <p>consulter les stocks des produits</p>
-   <p>enregistre un achat</p>
-   <p>hystorique des achats</p>
+  <div class="icon-centered">
+    <i class="material-icons"> inbox </i> gestion du stock
+  </div>
+  <div class="icon-centered borderedTopBottom">
+    <i class="material-icons tiny"> lens </i> consulter les stocks des produits
+  </div>
+  <div class="icon-centered borderedTopBottom">
+    <i class="material-icons tiny"> lens </i> enregistre un achat
+  </div>
+  <div class="icon-centered borderedTopBottom">
+    <i class="material-icons tiny"> lens </i> hystorique des achats
+  </div>
 </div>
+
 
 <h5> Achat de produit </h5>
 

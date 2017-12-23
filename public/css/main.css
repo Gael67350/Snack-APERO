@@ -134,7 +134,13 @@ body {
   margin: 25px;
 }
 
-.iconCentered
+.borderedTopBottom
+{
+  margin-top: 15px !important;
+  margin-bottom: 15px !important;
+}
+
+.icon-centered
 {
   line-height: inherit !important;
   font-size: inherit !important;

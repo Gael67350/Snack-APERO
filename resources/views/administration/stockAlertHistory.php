@@ -1,10 +1,22 @@
 <div class="left-border">
-   <p> Administration du site </p>
-   <p>gérer les utilisateurs</p>
-   <p>gérer les produits</p>
-   <p>historique des alertes de stock</p>
-   <p>réinitialiser la base</p>
+  <div class="icon-centered">
+   <i class="material-icons"> build </i> Administration du site
+  </div>
+
+  <div class="icon-centered borderedTopBottom">
+   <i class="material-icons tiny"> lens </i> gérer les utilisateurs
+  </div>
+  <div class="icon-centered borderedTopBottom">
+    <i class="material-icons tiny"> lens </i> gérer les produits
+  </div>
+  <div class="icon-centered borderedTopBottom">
+    <i class="material-icons tiny"> lens </i> historique des alertes de stock
+  </div>
+  <div class="icon-centered borderedTopBottom">
+    <i class="material-icons tiny"> lens </i> réinitialiser la base
+  </div>
 </div>
+
 
 <h3> Historiqe des alertes de stocks enregistrées </h3>
 

@@ -1,8 +1,16 @@
 <div class="left-border">
-   <p> gestion des consommations de Nom Prenom </p>
-   <p>insérer une nouvelle consommation</p>
-   <p>Supresion d'une consommation existante</p>
-   <p>approvisionner le compte</p>
+  <div class="icon-centered">
+   <i class="material-icons"> person </i> gestion des consommations de Nom Prenom
+  </div>
+  <div class="icon-centered borderedTopBottom">
+   <i class="material-icons tiny"> lens </i>insérer une nouvelle consommation
+  </div>
+   <div class="icon-centered borderedTopBottom">
+    <i class="material-icons tiny"> lens </i>Supresion d'une consommation existante
+  </div>
+    <div class="icon-centered borderedTopBottom">
+     <i class="material-icons tiny"> lens </i>approvisionner le compte
+   </div>
 </div>
 
 <h5>Nouvelle consommation pour </h5>
