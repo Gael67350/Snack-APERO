@@ -18,7 +18,7 @@ class HomeController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function index() {
-        return $this->render('administration.personEdit');
+        return $this->render('consumption.newConsumption');
     }
 
 }

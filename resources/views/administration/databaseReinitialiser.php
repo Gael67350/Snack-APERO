@@ -21,5 +21,5 @@
       la forme d'un aprovisionnement.
   </p>
 
-  <button type="button" class="waves-effect waves-light red"> Reinitialiser la base de données</button>
+  <button type="button" class="waves-effect waves-light btn red"> Reinitialiser la base de données</button>
 </div>

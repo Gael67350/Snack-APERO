@@ -105,6 +105,6 @@
         </tr>
       </tbody>
     </table>
-
+    <p> Prix total de la consommation xx.xx€ </p>
     <button class="waves-effect waves-light btn btn-spaced" name="button"> Valider la consommation </button>
 </form>

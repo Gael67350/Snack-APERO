@@ -15,15 +15,15 @@
   </div>
   <div class="input-field">
       <input id="phone" type="text" class="validate">
-      <label for="phone" data-error="wrong" data-success="right"> Numero de telephone </label>
+      <label for="phone"> Numero de telephone </label>
   </div>
   <div class="input-field">
       <input id="password" type="password" class="validate">
-      <label for="password" data-error="wrong" data-success="right"> Mot de passe </label>
+      <label for="password"> Mot de passe </label>
   </div>
   <div class="input-field">
       <input id="privilegeInput" type="number" class="validate" min="0" max="2">
-      <label for="privilegeInput" data-error="wrong" data-success="right"> Privilège </label>
+      <label for="privilegeInput"> Privilège </label>
   </div>
 </form>
 
@@ -50,9 +50,9 @@
         <td> <input type="text" name="dateInput" value="" class="datepicker"></td>
         <td> xxxxxxx </td>
         <td> xxxxxxx </td>
-        <td> <button type="button" name="solder"> Solder </button> </td>
+        <td> <button type="button" name="solder" class="waves-effect waves-light btn"> Solder </button> </td>
       </tr>
     </tbody>
   </table>
-  <input type="submit" name="valider" value="Enregistrer">
+  <input class="waves-effect waves-light btn" type="submit" name="valider" value="Enregistrer">
 </form>
