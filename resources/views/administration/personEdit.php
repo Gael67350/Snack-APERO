@@ -9,14 +9,22 @@
 <h3>Gestion de l'utilisateur </h3>
 
 <form class="" action="index.html" method="post">
-  <label for="mailInpt">Email:</label>
-  <input type="text" name="mailInpt" value="">
-  <label for="phoneInpt">Phone:</label>
-  <input type="text" name="phoneInpt" value="">
-  <label for="passwordInpt">Password:</label>
-  <input type="text" name="passwordInpt" value="">
-  <label for="privilegeInpt">Privilege:</label>
-  <input type="number" name="privilegeInpt" value="" min="0" max="2">
+  <div class="input-field">
+      <input id="email" type="email" class="validate">
+      <label for="email" data-error="wrong" data-success="right"> Adresse Mail</label>
+  </div>
+  <div class="input-field">
+      <input id="phone" type="text" class="validate">
+      <label for="phone" data-error="wrong" data-success="right"> Numero de telephone </label>
+  </div>
+  <div class="input-field">
+      <input id="password" type="password" class="validate">
+      <label for="password" data-error="wrong" data-success="right"> Mot de passe </label>
+  </div>
+  <div class="input-field">
+      <input id="privilegeInput" type="number" class="validate" min="0" max="2">
+      <label for="privilegeInput" data-error="wrong" data-success="right"> Privilège </label>
+  </div>
 </form>
 
 <h5>Enfants associés enregistrés</h5>
