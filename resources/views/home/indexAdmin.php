@@ -17,17 +17,17 @@
             </tr>
           </thead>
           <tbody>
-        <!--a modifier remplacer par la génération avec données modele-->
-            <tr>
-                <td>Alvin</td>
-                <td>Eclair</td>
-                <td>$0.87</td>
-            </tr>
-            <tr>
-              <td>jean</td>
-              <td>Valjean</td>
-              <td>$99999.9</td>
-            </tr>
+            <?php
+              use App\Models;
+                  foreach ($childs as $person)
+                  {
+                    echo '<tr>';
+                    echo '<td>'.$person->lastName.'</td>';
+                    echo '<td>'.$person->name.'</td>';
+                      echo '<td>'.Models\Child::getBalance($person->id_child)[0]->balance.'</td>';
+                    echo '</tr>';
+                  }
+            ?>
           </tbody>
         </table>
       </li>
@@ -43,23 +43,23 @@
         <table class="striped">
           <thead>
             <tr>
-              <th> Nom </th>
-              <th> Prenom </th>
-              <th> Solde </th>
+              <th> produit </th>
+              <th> quantité en stock </th>
             </tr>
           </thead>
           <tbody>
-        <!--a modifier remplacer par la génération avec données modele-->
-            <tr>
-                <td>Alvin</td>
-                <td>Eclair</td>
-                <td>$0.87</td>
-            </tr>
-            <tr>
-              <td>jean</td>
-              <td>Valjean</td>
-              <td>$99999.9</td>
-            </tr>
+            <?php
+            foreach ($products as $product)
+              {
+                if(isset($product->minQuantity))
+                {
+                    echo '<tr>';
+                    echo '<td>'.$product->name.'</td>';
+                    echo '<td>'.Models\Product::getStockById($product->id_product)[0]->quantity_available.'</td>';
+                    echo '</tr>';
+                }
+              }
+            ?>
           </tbody>
         </table>
       </li>

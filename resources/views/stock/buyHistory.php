@@ -23,94 +23,45 @@
     <th> contenu </th>
   </thead>
   <tbody>
-    <tr>
-      <td> <i class="material-icons"> remove_circle </i> </td>
-      <td> xx-xx-xxxx </td>
-      <td> xx.xx€ </td>
-      <td>
-        <table class="bordered">
-          <thead>
-            <tr>
-              <td>produit</td>
-              <td>quantité</td>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>xxxxxx</td>
-              <td>xx.xx</td>
-            </tr>
-            <tr>
-              <td>xxxxxx</td>
-              <td>xx</td>
-            </tr>
-            <tr>
-              <td>xxxxxx</td>
-              <td>xx</td>
-            </tr>
-          </tbody>
-        </table>
-      </td>
-    </tr>
+      <?php
+        use App\Models;
+        foreach ($purchases as $purchase)
+        {
+          echo'<tr>';
+            if($purchase->transactionDate == date("jj-mm-aaaa hh:mm:ss"))
+            {
+              echo "<td> <i class=\"material-icons\"> remove_circle </i> </td>";
+            }
+            else
+            {
+              echo "<td></td>";
+            }
+            echo "<td>".$purchase->transactionDate."</td>";
+            echo "<td>".$purchase->totalPrice."€ </td>";
 
-    <tr>
-      <td> </td>
-      <td> xx-xx-xxxx </td>
-      <td> xx.xx€ </td>
-      <td>
-        <table class="bordered">
-          <thead>
-            <tr>
-              <td>produit</td>
-              <td>quantité</td>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>xxxxxx</td>
-              <td>xx.xx</td>
-            </tr>
-            <tr>
-              <td>xxxxxx</td>
-              <td>xx</td>
-            </tr>
-            <tr>
-              <td>xxxxxx</td>
-              <td>xx</td>
-            </tr>
-          </tbody>
-        </table>
-      </td>
-    </tr>
+            echo"<td>";
+            echo"<table class=\"bordered\">";
+            echo"   <thead>";
+            echo"     <tr>";
+            echo"      <td>produit</td>";
+            echo"      <td>quantité</td>";
+            echo"    </tr>";
+            echo"  </thead>";
+            echo"  <tbody>";
+            foreach (Models\Purchase::getAssociatedPurchases($purchase->id_purchase) as $product)
+            {
+              echo"<tr>";
+              echo"<td>".Models\Product::find($product->id_product)->name."</td>";
+              echo"<td>".$product->quantity."</td>";
+              echo"</tr>";
+            }
+            echo"  </tbody>";
+            echo"</table>";
+            echo"</td>";
 
-    <tr>
-      <td> </td>
-      <td> xx-xx-xxxx </td>
-      <td> xx.xx€ </td>
-      <td>
-        <table class="bordered">
-          <thead>
-            <tr>
-              <td>produit</td>
-              <td>quantité</td>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>xxxxxx</td>
-              <td>xx.xx</td>
-            </tr>
-            <tr>
-              <td>xxxxxx</td>
-              <td>xx</td>
-            </tr>
-            <tr>
-              <td>xxxxxx</td>
-              <td>xx</td>
-            </tr>
-          </tbody>
-        </table>
-      </td>
-    </tr>
-  </tbody>
+          echo'</tr>';
+        }
+
+      ?>
+    <tbody>
 </table>

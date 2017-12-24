@@ -8,7 +8,7 @@ class Purchase extends Model {
 
     const CREATED_AT = 'transactionDate';
 
-    protected $table = 'purchaseGroup';
+    protected $table = 'purchasegroup';
 
     protected $primaryKey = 'id_purchase';
 
@@ -38,4 +38,8 @@ class Purchase extends Model {
         return $this->pivot->quantity;
     }
 
+    public static function getAssociatedPurchases($id)
+    {
+      return \DB::table('purchase')->where(['id_purchase' => $id])->get();
+    }
 }
