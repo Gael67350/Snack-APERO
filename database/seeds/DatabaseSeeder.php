@@ -33,6 +33,8 @@ class DatabaseSeeder extends Seeder {
         DB::table('user')->insert(['email' => $faker->email, 'phone' => '0123543254', 'password' => hash('sha256', $faker->password(rand(8, 30))), 'privilege' => 1]);
         DB::table('user')->insert(['email' => $faker->email, 'phone' => '0243645232', 'password' => hash('sha256', $faker->password(rand(8, 30))), 'privilege' => 1]);
         DB::table('user')->insert(['email' => $faker->email, 'phone' => '0375496475', 'password' => hash('sha256', $faker->password(rand(8, 30))), 'privilege' => 2]);
+        DB::table('user')->insert(['email' => 'volunteer@example.com', 'phone' => '0252489576', 'password' => \Illuminate\Support\Facades\Hash::make('admin'), 'privilege' => 1]);
+        DB::table('user')->insert(['email' => 'parent@example.com', 'phone' => '0680406590', 'password' => \Illuminate\Support\Facades\Hash::make('admin'), 'privilege' => 2]);
 
         DB::table('child')->insert(['lastName' => 'toto', 'name' => 'henry', 'birthDate' => '2011-04-1', 'id_category' => 1, 'id_user' => 3]);
         DB::table('child')->insert(['lastName' => 'titi', 'name' => 'jean paul', 'birthDate' => '2012-02-13', 'id_category' => 1, 'id_user' => 4]);
