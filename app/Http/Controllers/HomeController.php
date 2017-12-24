@@ -22,9 +22,16 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $childs = Models\Child::all();
-        $products = Models\Product::all();
-        return $this->render('home.indexAdmin' , ['childs'=> $childs,'products'=>$products]);
+        if(Auth::user()->privilege == 2)
+        {
+        $childsRelated = Models\Child::getRelatedChild(11/*Auth::user()->user_id*/);
+          return $this->render('home.indexUser',['childs' => $childsRelated,'idDisplay' => 0 , 'childBalance' => Models\Child::getBalance($childsRelated[0]->id_child) , 'displayedCategory' => Models\Category::getRelatedCategory($childsRelated[0]->id_category) ,'AssociatedConsumption' =>  Models\Consumption::getRelatedConsumption($childsRelated[0]->id_user) ,'AssociatedInflows' => Models\Inflow::getAssociatedInflows($childsRelated[0]->id_user)]);
+        }
+        else
+        {
+          $childs = Models\Child::all();
+          $products = Models\Product::all();
+          return $this->render('home.indexAdmin' , ['childs'=> $childs,'products'=>$products]);
+        }
     }
-
 }

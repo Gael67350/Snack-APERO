@@ -1,170 +1,92 @@
 <div class="left-border">
-   <p> Liste des enfants </p>
-   <p>nom Prenom 1</p>
-   <p>nom Prenom 2</p>
-   <p>nom Prenom 3</p>
+  <div class="icon-centered">
+    <i class="material-icons"> supervisor_account </i>  Liste des enfants
+  </div>
+   <?php
+    foreach ($childs as $child) {
+      echo  "<div class=\"icon-centered borderedTopBottom\">";
+      echo  "<i class=\"material-icons tiny \"> lens </i> ".$child->name." ".$child->lastName;
+      echo  "</div>";
+    }
+
+   ?>
 </div>
 
-<h4> Résumé de Nom Prénom 1 </h4>
-<h5> Solde actuel :XX.XX€ </h5>
-<h5 > Date de naissance : xx-xx-xxxx catégorie : xxxxxxx</h5>
+<?php
+  use App\Models;
+  if(isset($childs[$idDisplay]))
+  {
+    echo "<h4> Résumé de ".$childs[$idDisplay]->name." ".$childs[$idDisplay]->lastName."</h4>";
+    echo "<h5> Solde actuel : ".$childBalance[0]->balance."€ </h5>";
+    echo "<h5 > Date de naissance : ".$childs[$idDisplay]->birthDate." catégorie : ".$displayedCategory[0]->name."</h5>";
 
-<ul class="collapsible" data-colapsible="accordion">
-  <li>
-    <div class="collapsible-header">
-      <i class="material-icons"> list </i>
-      historique des consommations
-    </div>
-    <div class="collapsible-body">
-      <table class="striped">
-        <thead>
-          <tr>
-            <th>date de consommations</th>
-            <th>Contenu de la consommation</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td> XX-XX-XXXX </td>
-            <td>
+    echo  "<ul class=\"collapsible\" data-colapsible=\"accordion\">";
+    echo  "<li>";
+    echo  "<div class=\"collapsible-header\">";
+    echo  "<i class=\"material-icons\"> list </i>";
+    echo  "historique des consommations";
+    echo  "</div>";
+    echo  "<div class=\"collapsible-body\">";
+    echo  "<table class=\"striped\">";
+    echo  "<thead>";
+    echo  "<tr>";
+    echo  "<th>date de consommations</th>";
+    echo  "<th>Contenu de la consommation</th>";
+    echo  "</tr>";
+    echo  "</thead>";
+    echo  "<tbody>";
+    foreach ($AssociatedConsumption as $consumption)
+    {
+        echo"<tr>";
+        echo"<td>".$consumption->transactionDate."</td>";
+        echo"<td>";
+        echo"<table class=\"bordered\">";
 
-               <table class="bordered">
+        echo"<thead>";
+          echo"<tr>";
+            echo"<th>nom du produit</th>";
+            echo"<th>quantité acheté</th>";
+          echo"</tr>";
+        echo"</thead>";
+        echo"<tbody>";
+        foreach (Models\Product::getAchats($consumption->id_consumption) as $achat)
+        {
+          echo"<tr>";
+          echo"<td>".$achat->name."</td>";
+          echo"<td>".$achat->quantity."</td>";
+          echo"</tr>";
+        }
+        echo "</tbody>";
+        echo "</table>";
+    }
+    echo "</tbody>";
+    echo "</table>";
+    echo "</div>";
+    echo "</li>";
 
-                 <thead>
-                   <tr>
-                     <th>nom du produit</th>
-                     <th>quantité acheté</th>
-                   </tr>
-                 </thead>
+    echo "<li>";
+    echo "<div class=\"collapsible-header\"><i class=\"material-icons\"> list </i> historique des aprovisionnement</div>";
+    echo "  <div class=\"collapsible-body\">";
+    echo "  <table class=\"striped\">";
+    echo "    <thead>";
+    echo "      <tr>";
+    echo "        <th>date de la recharge</th>";
+    echo "        <th>montant de la recharge</th>";
+    echo "      </tr>";
+    echo "    </thead>";
+    echo "    <tbody>";
 
-                 <tbody>
-                   <tr>
-                     <td>xxxxxxx</td>
-                     <td>xx.xx</td>
-                   </tr>
-                   <tr>
-                     <td>xxxxxxx</td>
-                     <td>xx.xx</td>
-                   </tr>
-                 </tbody>
+    foreach ($AssociatedInflows as $inflow) {
+      echo "      <tr>";
+      echo "      <td>".$inflow->transactionDate."</td>";
+      echo "        <td>".$inflow->amount."</td>";
+      echo "      </tr>";
+    }
+    echo "</tbody>";
+    echo "</table>";
+    echo "</div>";
+    echo "</li>";
+    echo "</ul>";
 
-               </table>
-
-            </td>
-          </tr>
-          <tr>
-            <td> XX-XX-XXXX </td>
-            <td>
-
-               <table class="bordered">
-
-                 <thead>
-                   <tr>
-                     <th>nom du produit</th>
-                     <th>quantité acheté</th>
-                   </tr>
-                 </thead>
-
-                 <tbody>
-                   <tr>
-                     <td>xxxxxxx</td>
-                     <td>xx.xx</td>
-                   </tr>
-                   <tr>
-                     <td>xxxxxxx</td>
-                     <td>xx.xx</td>
-                   </tr>
-                 </tbody>
-
-               </table>
-
-            </td>
-          </tr>
-          <tr>
-            <td> XX-XX-XXXX </td>
-            <td>
-
-               <table class="bordered">
-
-                 <thead>
-                   <tr>
-                     <th>nom du produit</th>
-                     <th>quantité acheté</th>
-                   </tr>
-                 </thead>
-
-                 <tbody>
-                   <tr>
-                     <td>xxxxxxx</td>
-                     <td>xx.xx</td>
-                   </tr>
-                   <tr>
-                     <td>xxxxxxx</td>
-                     <td>xx.xx</td>
-                   </tr>
-                 </tbody>
-
-               </table>
-
-            </td>
-          </tr>
-          <tr>
-            <td> XX-XX-XXXX </td>
-            <td>
-
-               <table class="bordered">
-
-                 <thead>
-                   <tr>
-                     <th>nom du produit</th>
-                     <th>quantité acheté</th>
-                   </tr>
-                 </thead>
-
-                 <tbody>
-                   <tr>
-                     <td>xxxxxxx</td>
-                     <td>xx.xx</td>
-                   </tr>
-                   <tr>
-                     <td>xxxxxxx</td>
-                     <td>xx.xx</td>
-                   </tr>
-                 </tbody>
-
-               </table>
-
-            </td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-  </li>
-  <li>
-    <div class="collapsible-header"><i class="material-icons"> list </i> historique des aprovisionnement</div>
-    <div class="collapsible-body">
-      <table class="striped">
-        <thead>
-          <tr>
-            <th>date de la recharge</th>
-            <th>montant de la recharge</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>xx-xx-xxxx</td>
-            <td>XX.XX€</td>
-          </tr>
-          <tr>
-            <td>xx-xx-xxxx</td>
-            <td>XX.XX€</td>
-          </tr>
-          <tr>
-            <td>xx-xx-xxxx</td>
-            <td>XX.XX€</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-  </li>
-</ul>
+  }
+?>

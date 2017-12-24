@@ -51,4 +51,9 @@ class Child extends Model {
       return \DB::table('child_balance')->where(['id_child' => $id])->get();
     }
 
+    public static function getRelatedChild($id)
+    {
+      return \DB::table('child')->where(['id_user' => $id])->get();
+    }
+
 }

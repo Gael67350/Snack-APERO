@@ -51,4 +51,9 @@ class Product extends Model {
         return \DB::table('stock')->where(['id_product' => $id])->get();
     }
 
+    public static function getAchats($id)
+    {
+      return \DB::select(\DB::raw("select * FROM product p , concerns c WHERE c.id_product = p.id_product AND id_consumption='".$id."'"));
+    }
+
 }

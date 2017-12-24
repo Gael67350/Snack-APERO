@@ -20,4 +20,9 @@ class Category extends Model {
         return $this->hasMany('App\Models\Child', 'id_category');
     }
 
+    public static function getRelatedCategory($id)
+    {
+      return \DB::table('category')->where(['id_category' => $id])->get();
+    }
+
 }

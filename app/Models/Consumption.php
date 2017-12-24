@@ -40,4 +40,9 @@ class Consumption extends Model {
         return $this->pivot->quantity;
     }
 
+    public static function getRelatedConsumption($id)
+    {
+      return \DB::table('consumption')->where(['id_child' => $id])->get();
+    }
+
 }
