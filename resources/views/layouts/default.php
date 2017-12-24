@@ -8,8 +8,8 @@
 
 		<title>Snack APERO</title>
 
-		<link rel="stylesheet" href="./css/main.css">
-		<link rel="stylesheet" href="./css/materialize.css">
+		<link rel="stylesheet" href="<?= asset('/css/main.css') ?>">
+		<link rel="stylesheet" href="<?= asset('/css/materialize.css') ?>">
 		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 	</head>
 
@@ -42,7 +42,7 @@
 										class="material-icons">account_circle</i></a>
 							<ul id="dropdownUser" class="dropdown-content">
 
-								<li><a href="#">Profil</a></li>
+								<li><a href="<?= route('profile', ['id' => Auth::user()->id_user]) ?>">Profil</a></li>
 								<li><a href="<?= route('logout') ?>">Déconnexion</a></li>
 							</ul>
 
@@ -57,8 +57,8 @@
             <?= $content ?>
 		</div>
 
-		<script type="text/javascript" src="./js/jquery-3.2.1.min.js"></script>
-		<script type="text/javascript" src="./js/materialize.min.js"></script>
+		<script type="text/javascript" src="<?= asset('/js/jquery-3.2.1.min.js') ?>"></script>
+		<script type="text/javascript" src="<?= asset('js/materialize.min.js') ?>"></script>
 
 	</body>
 </html>

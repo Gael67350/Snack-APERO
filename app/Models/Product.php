@@ -43,12 +43,12 @@ class Product extends Model {
         $this->attributes['name'] = ucfirst($value);
     }
 
-    public static function getStock() {
-        return \DB::table('stock')->get();
+    public function getStock() {
+        return \DB::table('stock')->where(['id_product' => $this->id_product])->value('quantity_available');
     }
 
-    public static function getStockById($id) {
-        return \DB::table('stock')->where(['id_product' => $id])->get();
+    public static function getFullStock() {
+        return \DB::table('stock')->get();
     }
 
     public static function getAchats($id)

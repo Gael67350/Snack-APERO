@@ -19,6 +19,7 @@ Route::get('/', function () {
 */
 
 Route::get('/', 'HomeController@index')->name('home');
+Route::get('/user/profile/{id}', 'UsersController@profile')->name('profile');
 
 // Authentication Routes
 Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');
