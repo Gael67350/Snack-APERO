@@ -38,6 +38,15 @@ class User extends Model implements Authenticatable {
         return $this->privilege === 1;
     }
 
+    public function getPrivilegeName() {
+        if ($this->isAdmin())
+            return "Administrateur";
+        if ($this->isVolunteer())
+            return "Bénévole";
+
+        return "Utilisateur";
+    }
+
     /**
      * Get the name of the unique identifier for the user.
      *

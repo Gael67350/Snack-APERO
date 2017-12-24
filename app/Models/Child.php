@@ -46,9 +46,7 @@ class Child extends Model {
         $this->attributes['name'] = ucfirst($value);
     }
 
-    public static function getBalance($id)
-    {
-      return \DB::table('child_balance')->where(['id_child' => $id])->get();
+    public function getBalance() {
+        return number_format(\DB::table('child_balance')->select('balance')->where(['id_child' => $this->id_child])->value('balance'), 2);
     }
-
 }
