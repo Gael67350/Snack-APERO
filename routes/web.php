@@ -27,12 +27,18 @@ Route::post('login', 'Auth\LoginController@login');
 Route::get('logout', 'Auth\LoginController@logout')->name('logout');
 
 //pages linkers
-Route::get('/dispLog', 'ProductsController@displayLogs');
-Route::get('/srchPers', 'ProductsController@launchPersonSearch');
-Route::get('/srchProd', 'ProductsController@launchProductSearch');
-Route::get('/reinitDb', 'PurchasesController@initDbReinitialiser');
-Route::get('/showStock', 'ProductsController@displayStocks');
-Route::get('/insertBuy', 'ProductsController@recordBuy');
-Route::get('/verifyBuy', 'ProductsController@buyHistory');
-Route::get('/childAffich', 'ChildsController@showChilds');
-Route::get('/srchChld', 'ConsumptionsController@showChildSrch');
+Route::get('/admin/dispLog', 'ProductsController@displayLogs');
+Route::get('/admin/srchPers', 'UsersController@launchPersonSearch');
+Route::get('/admin/srchProd', 'ProductsController@launchProductSearch');
+Route::get('/admin/reinitDb', 'PurchasesController@initDbReinitialiser');
+
+Route::get('/stock/showStock', 'ProductsController@displayStocks');
+Route::get('/stock/insertBuy', 'ProductsController@recordBuy');
+Route::get('/stock/verifyBuy', 'ProductsController@buyHistory');
+
+Route::get('/sumup/childAffich', 'ChildsController@showChilds');
+
+Route::get('/consumption/srchChld', 'ConsumptionsController@showChildSrch');
+Route::get('/consumption/nuConsum', 'ChildsController@openChildManager');
+Route::get('/consumption/delConsum','ConsumptionsController@showExistingConsumption');
+Route::get('/consumption/insInflow',"InflowsController@openInflows");

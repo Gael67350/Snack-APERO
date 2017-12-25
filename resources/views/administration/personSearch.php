@@ -37,46 +37,16 @@
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td> <i class="material-icons"> remove_circle </i> </td>
-            <td> xxxxxxx </td>
-            <td> xxxxxxxxxx </td>
-          </tr>
-          <tr>
-            <td> <i class="material-icons"> remove_circle </i> </td>
-            <td> xxxxxxx </td>
-            <td> xxxxxxxxxx </td>
-          </tr>
-          <tr>
-            <td> <i class="material-icons"> remove_circle </i> </td>
-            <td> xxxxxxx </td>
-            <td> xxxxxxxxxx </td>
-          </tr>
-          <tr>
-            <td> <i class="material-icons"> remove_circle </i> </td>
-            <td> xxxxxxx </td>
-            <td> xxxxxxxxxx </td>
-          </tr>
-          <tr>
-            <td> <i class="material-icons"> remove_circle </i> </td>
-            <td> xxxxxxx </td>
-            <td> xxxxxxxxxx </td>
-          </tr>
-          <tr>
-            <td> <i class="material-icons"> remove_circle </i> </td>
-            <td> xxxxxxx </td>
-            <td> xxxxxxxxxx </td>
-          </tr>
-          <tr>
-            <td> <i class="material-icons"> remove_circle </i> </td>
-            <td> xxxxxxx </td>
-            <td> xxxxxxxxxx </td>
-          </tr>
-          <tr>
-            <td> <i class="material-icons"> remove_circle </i> </td>
-            <td> xxxxxxx </td>
-            <td> xxxxxxxxxx </td>
-          </tr>
+          <?php
+            foreach($persons as $person)
+            {
+              echo "<tr>";
+              echo "<td> <i class=\"material-icons\"> remove_circle </i> </td>";
+              echo "<td> ".$person->email ." </td>";
+              echo "<td> ".$person->phone ." </td>";
+              echo "</tr>";
+            }
+          ?>
         </tbody>
       </table>
 

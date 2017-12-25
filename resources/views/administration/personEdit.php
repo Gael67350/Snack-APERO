@@ -3,7 +3,7 @@
    <i class="material-icons"> build </i> Administration du site
   </div>
   <div class="icon-centered borderedTopBottom">
-   <i class="material-icons tiny"> lens </i> <a href="<?=action("ProductsController@launchPersonSearch")?>"> gérer les utilisateurs </a>
+   <i class="material-icons tiny"> lens </i> <a href="<?=action("UsersController@launchPersonSearch")?>"> gérer les utilisateurs </a>
   </div>
   <div class="icon-centered borderedTopBottom">
     <i class="material-icons tiny"> lens </i> <a href="<?=action("ProductsController@launchProductSearch")?>"> gérer les produits </a>

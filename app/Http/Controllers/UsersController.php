@@ -21,4 +21,9 @@ class UsersController extends Controller {
         return $this->render('user.profile', compact('user'));
     }
 
+    public function launchPersonSearch()
+    {
+      $persons = User::all();
+      return $this->render('administration.personSearch' , ['persons' => $persons]);
+    }
 }

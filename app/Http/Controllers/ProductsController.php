@@ -18,14 +18,10 @@ class ProductsController extends Controller {
       return $this->render('administration.stockAlertHistory' , ['logListing' => $logListing]);
     }
 
-    public function launchPersonSearch()
-    {
-      return $this->render('administration.personSearch');
-    }
-
     public function launchProductSearch()
     {
-      return $this->render('administration.productSearch');
+      $products = Models\Product::all();
+      return $this->render('administration.productSearch' , ['products' => $products]);
     }
 
     public function displayStocks()

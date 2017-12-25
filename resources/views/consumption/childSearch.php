@@ -9,7 +9,7 @@
   </div>
 </label>
 </div>
-<table>
+<table class="striped">
   <thead>
     <tr>
       <th>Nom </th>
@@ -17,19 +17,14 @@
     </tr>
   </thead>
   <tbody>
-    <tr>
-      <td>xxxxxxxxxxxxx</td>
-      <td>xxxxxxxxxxxxx</td>
-    </tr>
-
-    <tr>
-      <td>xxxxxxxxxxxxx</td>
-      <td>xxxxxxxxxxxxx</td>
-    </tr>
-
-    <tr>
-      <td>xxxxxxxxxxxxx</td>
-      <td>xxxxxxxxxxxxx</td>
-    </tr>
+    <?php
+      foreach ($childs as $child)
+      {
+        echo "<tr> ";
+        echo "<td> <a href=\"".action("ChildsController@openChildManager",["id" => $child->id_child])."\"> ".$child->name." </a> </td>";
+        echo "<td> <a href=\"".action("ChildsController@openChildManager",["id" => $child->id_child])."\">".$child->lastName."</a> </td>";
+        echo "</a> </tr>";
+      }
+    ?>
   </tbody>
 </table>

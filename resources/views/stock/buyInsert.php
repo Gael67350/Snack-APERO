@@ -9,7 +9,7 @@
     <i class="material-icons tiny"> lens </i> <a href="#"> enregistre un achat </a>
   </div>
   <div class="icon-centered borderedTopBottom">
-    <i class="material-icons tiny"> lens </i> <a href="<?=action("ProductsController@buyHistory")?>"> hystorique des achats </a>
+    <i class="material-icons tiny"> lens </i> <a href="<?=action("ProductsController@buyHistory")?>"> historique des achats </a>
   </div>
 </div>
 

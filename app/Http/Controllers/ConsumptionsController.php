@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models;
 
 class ConsumptionsController extends Controller {
 
@@ -12,7 +13,14 @@ class ConsumptionsController extends Controller {
 
     public function showChildSrch()
     {
-      return $this->render("consumption.childSearch");
+      $childs = Models\Child::all();
+      return $this->render("consumption.childSearch", ['childs' => $childs]);
     }
 
+    public function showExistingConsumption()
+    {
+      $child = Models\Child::find($_GET['id']);
+      $consumptions = Models\Consumption::getRelatedConsumption($child->id_child);
+      return $this->render("consumption.delConsumption" , ['managed' => $child , 'associatedConsumption' => $consumptions]);
+    }
 }

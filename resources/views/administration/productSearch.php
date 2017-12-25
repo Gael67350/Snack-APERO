@@ -3,7 +3,7 @@
    <i class="material-icons"> build </i> Administration du site
   </div>
   <div class="icon-centered borderedTopBottom">
-   <i class="material-icons tiny"> lens </i> <a href="<?=action("ProductsController@launchPersonSearch")?>"> gérer les utilisateurs </a>
+   <i class="material-icons tiny"> lens </i> <a href="<?=action("UsersController@launchPersonSearch")?>"> gérer les utilisateurs </a>
   </div>
   <div class="icon-centered borderedTopBottom">
     <i class="material-icons tiny"> lens </i> <a href="#"> gérer les produits </a>
@@ -36,50 +36,15 @@
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td> <i class="material-icons"> remove_circle </i> </td>
-            <td> xxxxxxx </td>
-          </tr>
-           <tr>
-            <td> <i class="material-icons"> remove_circle </i> </td>
-            <td> xxxxxxx </td>
-          </tr>
-           <tr>
-             <td> <i class="material-icons"> remove_circle </i> </td>
-             <td> xxxxxxx </td>
-          </tr>
-           <tr>
-             <td> <i class="material-icons"> remove_circle </i> </td>
-             <td> xxxxxxx </td>
-          </tr>
-           <tr>
-             <td> <i class="material-icons"> remove_circle </i> </td>
-             <td> xxxxxxx </td>
-          </tr>
-           <tr>
-             <td> <i class="material-icons"> remove_circle </i> </td>
-             <td> xxxxxxx </td>
-          </tr>
-           <tr>
-             <td> <i class="material-icons"> remove_circle </i> </td>
-             <td> xxxxxxx </td>
-          </tr>
-           <tr>
-             <td> <i class="material-icons"> remove_circle </i> </td>
-             <td> xxxxxxx </td>
-          </tr>
-           <tr>
-             <td> <i class="material-icons"> remove_circle </i> </td>
-             <td> xxxxxxx </td>
-          </tr>
-           <tr>
-             <td> <i class="material-icons"> remove_circle </i> </td>
-             <td> xxxxxxx </td>
-          </tr>
-           <tr>
-             <td> <i class="material-icons"> remove_circle </i> </td>
-             <td> xxxxxxx </td>
-          </tr>
+        <?php
+          foreach($products as $product)
+          {
+            echo "<tr>";
+            echo "<td> <i class=\"material-icons\"> remove_circle </i> </td>";
+            echo "<td>".$product->name."</td>";
+            echo "</tr>";
+          }
+          ?>
         </tbody>
       </table>
 

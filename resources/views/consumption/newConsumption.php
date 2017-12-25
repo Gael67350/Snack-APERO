@@ -1,20 +1,20 @@
 <div class="left-border">
   <div class="icon-centered">
-   <i class="material-icons"> person </i> gestion des consommations de Nom Prenom
+   <i class="material-icons"> person </i> gestion des consommations de <?=$managed->name?> <?=$managed->lastName?>
   </div>
   <div class="icon-centered borderedTopBottom">
-   <i class="material-icons tiny"> lens </i>insérer une nouvelle consommation
+   <i class="material-icons tiny"> lens </i> <a href= "#" > insérer une nouvelle consommation </a>
   </div>
    <div class="icon-centered borderedTopBottom">
-    <i class="material-icons tiny"> lens </i>Supresion d'une consommation existante
+    <i class="material-icons tiny"> lens </i> <a href= <?= action("ConsumptionsController@showExistingConsumption" , ['id' => $_GET['id']]) ?> >Supresion d'une consommation existante </a>
   </div>
     <div class="icon-centered borderedTopBottom">
-     <i class="material-icons tiny"> lens </i>approvisionner le compte
+     <i class="material-icons tiny"> lens </i> <a href= <?=action("ConsumptionsController@showExistingConsumption" , ['id' => $_GET['id']]) ?> > approvisionner le compte </a>
    </div>
 </div>
 
 <h5>Nouvelle consommation pour </h5>
-<h5> Nom Prenom 1</h5>
+<h5> <?=$managed->name?> <?=$managed->lastName?> </h5>
 
 <p> Contenu de la consommation </p>
 
