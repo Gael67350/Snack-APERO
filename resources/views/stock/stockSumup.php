@@ -24,17 +24,12 @@
     </tr>
   </thead>
   <tbody>
-    <tr>
-      <td>xxxxxxxxx</td>
-      <td>xx.xx</td>
-    </tr>
-    <tr>
-      <td>xxxxxxxxx</td>
-      <td>xx.xx</td>
-    </tr>
-    <tr>
-      <td>xxxxxxxxx</td>
-      <td>xx.xx</td>
-    </tr>
+    <?php
+      foreach ($products as $product)
+      {
+        echo"<td>".$product->name."</td>";
+        echo"<td>".$product->getStock()."</td>";
+      }
+     ?>
   </tbody>
 </table>

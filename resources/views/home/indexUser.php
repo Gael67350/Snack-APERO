@@ -3,9 +3,10 @@
     <i class="material-icons"> supervisor_account </i>  Liste des enfants
   </div>
    <?php
-    foreach ($childs as $child) {
+     use App\Models;
+    foreach ($children as $child) {
       echo  "<div class=\"icon-centered borderedTopBottom\">";
-      echo  "<i class=\"material-icons tiny \"> lens </i> ".$child->name." ".$child->lastName;
+      echo  "<i class=\"material-icons tiny \"> lens </i> <a href=\"".action("HomeController@index",['toDisp' => $child->id_child])."\">".$child->name." ".$child->lastName."</a>";
       echo  "</div>";
     }
 
@@ -13,12 +14,11 @@
 </div>
 
 <?php
-  use App\Models;
-  if(isset($childs[$idDisplay]))
+  if(isset($Display))
   {
-    echo "<h4> Résumé de ".$childs[$idDisplay]->name." ".$childs[$idDisplay]->lastName."</h4>";
-    echo "<h5> Solde actuel : ".$childBalance[0]->balance."€ </h5>";
-    echo "<h5 > Date de naissance : ".$childs[$idDisplay]->birthDate." catégorie : ".$displayedCategory[0]->name."</h5>";
+    echo "<h4> Résumé de ".$Display->name." ".$Display->lastName."</h4>";
+    echo "<h5> Solde actuel : ".$Display->getBalance()  ."€ </h5>";
+    echo "<h5 > Date de naissance : ".$Display->birthDate." catégorie : ".$Display->category->name."</h5>";
 
     echo  "<ul class=\"collapsible\" data-colapsible=\"accordion\">";
     echo  "<li>";

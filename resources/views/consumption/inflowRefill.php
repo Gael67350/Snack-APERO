@@ -32,25 +32,22 @@
     </tr>
   </thead>
   <tbody>
-    <tr>
-      <td> <i class="material-icons"> remove_circle </i> </td>
-      <td>XX-XX-XXXX</td>
-      <td>XX.XX€</td>
-    </tr>
-    <tr>
-      <td> <i class="material-icons"> remove_circle </i> </td>
-      <td>XX-XX-XXXX</td>
-      <td>XX.XX€</td>
-    </tr>
-    <tr>
-      <td> <i class="material-icons"> remove_circle </i> </td>
-      <td>XX-XX-XXXX</td>
-      <td>XX.XX€</td>
-    </tr>
-    <tr>
-      <td> <i class="material-icons"> remove_circle </i> </td>
-      <td>XX-XX-XXXX</td>
-      <td>XX.XX€</td>
-    </tr>
+
+      <?php foreach ($inflows as $inflow)
+      {
+        echo"<tr>";
+        if($inflow->transactionDate = date('aaaa-mm-jj'))
+        {
+          echo"<td> <i class=\"material-icons\"> remove_circle </i> </td>";
+        }
+        else
+        {
+          echo"<td></td>";
+        }
+        echo "<td>".$inflow->transactionDate."</td>";
+        echo "<td>".$inflow->ammount."</td>";
+      }
+      echo"</tr>";
+      ?>
   </tbody>
 </table>

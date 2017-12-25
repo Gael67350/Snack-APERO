@@ -20,7 +20,9 @@ class HomeController extends Controller {
      *
      * @return \Illuminate\Http\Response
      */
-    public function index() {
+
+    public function index()
+    {
         $user = Auth::user();
 
         if ($user->isAdmin() || $user->isVolunteer()) {
@@ -31,8 +33,15 @@ class HomeController extends Controller {
         }
         else
         {
-        $childsRelated = Models\Child::getRelatedChild(11/*Auth::user()->user_id*/);
-          return $this->render('home.indexUser',['childs' => $childsRelated,'idDisplay' => 0 , 'childBalance' => Models\Child::getBalance($childsRelated[0]->id_child) , 'displayedCategory' => Models\Category::getRelatedCategory($childsRelated[0]->id_category) ,'AssociatedConsumption' =>  Models\Consumption::getRelatedConsumption($childsRelated[0]->id_user) ,'AssociatedInflows' => Models\Inflow::getAssociatedInflows($childsRelated[0]->id_user)]);
+            $childrenRelated = Models\Child::getRelatedChild(11/*Auth::user()->user_id*/);
+            if(!isset($_GET['toDisp']))
+            {
+              return $this->render('home.indexUser',['children' => $childrenRelated,'Display' => Models\Child::find($childrenRelated[0]->id_child) , 'displayedCategory' => Models\Category::getRelatedCategory($childrenRelated[0]->id_category) ,'AssociatedConsumption' =>  Models\Consumption::getRelatedConsumption($childrenRelated[0]->id_user) ,'AssociatedInflows' => Models\Inflow::getAssociatedInflows($childrenRelated[0]->id_user)]);
+            }
+            else
+            {
+              return $this->render('home.indexUser',['children' => $childrenRelated,'Display' => Models\Child::find($_GET['toDisp']) , 'displayedCategory' => Models\Category::getRelatedCategory(Models\Child::find($_GET['toDisp'])->id_category) ,'AssociatedConsumption' =>  Models\Consumption::getRelatedConsumption(Models\Child::find($_GET['toDisp'])->id_user) ,'AssociatedInflows' => Models\Inflow::getAssociatedInflows(Models\Child::find($_GET['toDisp'])->id_user)]);
+            }
         }
     }
 }
