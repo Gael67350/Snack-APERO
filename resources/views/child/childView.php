@@ -8,7 +8,7 @@
      {
        foreach ($children as $child) {
          echo  "<div class=\"icon-centered borderedTopBottom whiteText\">";
-         echo  "<i class=\"material-icons tiny \"> lens </i> <a href=\"".action("homeController@index",['toDisp' => $child->id_child])."\">".$child->name." ".$child->lastName."</a>";
+         echo  "<i class=\"material-icons tiny \"> lens </i> <a href=\"".action("ChildsController@showChilds",['toDisp' => $child->id_child])."\">".$child->name." ".$child->lastName."</a>";
          echo  "</div>";
        }
     }

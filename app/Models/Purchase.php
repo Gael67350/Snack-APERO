@@ -38,6 +38,11 @@ class Purchase extends Model {
         return $this->pivot->quantity;
     }
 
+    public static function getPurchases($id)
+    {
+      return \DB::table('purchasegroup')->where(['id_user' => $id])->get();
+    }
+
     public static function getAssociatedPurchases($id)
     {
       return \DB::table('purchase')->where(['id_purchase' => $id])->get();

@@ -14,4 +14,9 @@ class PurchasesController extends Controller {
       return $this->render('stock.buyHistory',["purchases" => $concernedPurchases]);
     }
 
+    public function initDbReinitialiser()
+    {
+        return $this->render('administration.databaseReinitialiser');
+    }
+
 }

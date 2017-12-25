@@ -2,18 +2,17 @@
   <div class="icon-centered">
    <i class="material-icons"> build </i> Administration du site
   </div>
-
   <div class="icon-centered borderedTopBottom">
-   <i class="material-icons tiny"> lens </i> gérer les utilisateurs
+   <i class="material-icons tiny"> lens </i> <a href="<?=action("ProductsController@launchPersonSearch")?>"> gérer les utilisateurs </a>
   </div>
   <div class="icon-centered borderedTopBottom">
-    <i class="material-icons tiny"> lens </i> gérer les produits
+    <i class="material-icons tiny"> lens </i> <a href="#"> gérer les produits </a>
   </div>
   <div class="icon-centered borderedTopBottom">
-    <i class="material-icons tiny"> lens </i> historique des alertes de stock
+    <i class="material-icons tiny"> lens </i> <a href="<?=action("ProductsController@displayLogs")?>"> historique des alertes de stock </a>
   </div>
   <div class="icon-centered borderedTopBottom">
-    <i class="material-icons tiny"> lens </i> réinitialiser la base
+    <i class="material-icons tiny"> lens </i> <a href="<?=action("PurchasesController@initDbReinitialiser")?>"> réinitialiser la base </a>
   </div>
 </div>
 
@@ -25,7 +24,7 @@
     <input id="searchedText" type="text" class="validate">
     <label for="searchedText">
       <div class="iconCentered">
-            <i class="material-icons"> search </i> texte recherché
+            <i class="material-icons tiny"> search </i> texte recherché
       </div>
       </label>
 

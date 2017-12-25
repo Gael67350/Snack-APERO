@@ -10,4 +10,9 @@ class ConsumptionsController extends Controller {
 
     }
 
+    public function showChildSrch()
+    {
+      return $this->render("consumption.childSearch");
+    }
+
 }

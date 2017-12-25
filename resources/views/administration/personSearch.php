@@ -2,30 +2,29 @@
   <div class="icon-centered">
    <i class="material-icons"> build </i> Administration du site
   </div>
-
   <div class="icon-centered borderedTopBottom">
-   <i class="material-icons tiny"> lens </i> gérer les utilisateurs
+   <i class="material-icons tiny"> lens </i> <a href="#"> gérer les utilisateurs </a>
   </div>
   <div class="icon-centered borderedTopBottom">
-    <i class="material-icons tiny"> lens </i> gérer les produits
+    <i class="material-icons tiny"> lens </i> <a href="<?=action("ProductsController@launchProductSearch")?>"> gérer les produits </a>
   </div>
   <div class="icon-centered borderedTopBottom">
-    <i class="material-icons tiny"> lens </i> historique des alertes de stock
+    <i class="material-icons tiny"> lens </i> <a href="<?=action("ProductsController@displayLogs")?>"> historique des alertes de stock </a>
   </div>
   <div class="icon-centered borderedTopBottom">
-    <i class="material-icons tiny"> lens </i> réinitialiser la base
+    <i class="material-icons tiny"> lens </i> <a href="<?=action("PurchasesController@initDbReinitialiser")?>"> réinitialiser la base </a>
   </div>
 </div>
 
 
-<h3> gestion des produits </h3>
-<h4> choisissez le produit qu'il faudra modifier :</h4>
+<h3> gestion des utilisateur </h3>
+<h4> choisissez les utilisateurs qu'il faudra modifier :</h4>
 
 <div class="input-field">
     <input id="searchedText" type="text" class="validate">
     <label for="searchedText">
       <div class="iconCentered">
-            <i class="material-icons"> search </i> texte recherché
+            <i class="material-icons tiny"> search </i> texte recherché
       </div>
       </label>
 

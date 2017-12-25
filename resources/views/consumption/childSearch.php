@@ -1,23 +1,14 @@
-<div class="left-border">
-  <div class="icon-centered">
-   <i class="material-icons"> person </i> gestion des consommations de Nom Prenom
-  </div>
-  <div class="icon-centered borderedTopBottom">
-   <i class="material-icons tiny"> lens </i>insérer une nouvelle consommation
-  </div>
-   <div class="icon-centered borderedTopBottom">
-    <i class="material-icons tiny"> lens </i>Supresion d'une consommation existante
-  </div>
-    <div class="icon-centered borderedTopBottom">
-     <i class="material-icons tiny"> lens </i>approvisionner le compte
-   </div>
-</div>
-
 <h5>Consommations</h5>
 <h5> choisissez l'enfant dont il faut gérer les consommations :</h5>
 
-<input type="text" name="searchedChild" value="nom/prenom de l'enfant recherché"/>
-
+<div class="input-field">
+<input id="searchedText" type="text">
+<label for="searchedText">
+  <div class="iconCentered">
+        <i class="material-icons tiny"> search </i> nom/prenom de l'enfant recherché
+  </div>
+</label>
+</div>
 <table>
   <thead>
     <tr>

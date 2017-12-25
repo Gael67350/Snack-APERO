@@ -21,13 +21,13 @@
 
                     <?php if (Auth::check() && (Auth::user()->isVolunteer() || Auth::user()->isAdmin())): ?>
 
-						<li><a href="#">Enfants</a></li>
-						<li><a href="#">Consommations</a></li>
-						<li><a href="#">Stock</a></li>
+						<li><a href="<?=action("ChildsController@showChilds") ?>">Enfants</a></li>
+						<li><a href="<?=action("ConsumptionsController@showChildSrch") ?>">Consommations</a></li>
+						<li><a href="<?=action("ProductsController@displayStocks") ?>">Stock</a></li>
 
                         <?php if (Auth::user()->isAdmin()): ?>
 
-							<li><a href="#">Administration</a></li>
+						<li><a href="<?=action("ProductsController@displayLogs") ?>">Administration</a></li>
 
                         <?php endif; ?>
 

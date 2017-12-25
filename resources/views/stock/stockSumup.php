@@ -3,13 +3,13 @@
     <i class="material-icons"> inbox </i> gestion du stock
   </div>
   <div class="icon-centered borderedTopBottom">
-    <i class="material-icons tiny"> lens </i> consulter les stocks des produits
+    <i class="material-icons tiny"> lens </i> <a href="#">consulter les stocks des produits </a>
   </div>
   <div class="icon-centered borderedTopBottom">
-    <i class="material-icons tiny"> lens </i> enregistre un achat
+    <i class="material-icons tiny"> lens </i> <a href="<?=action("ProductsController@recordBuy")?>"> enregistre un achat </a>
   </div>
   <div class="icon-centered borderedTopBottom">
-    <i class="material-icons tiny"> lens </i> hystorique des achats
+    <i class="material-icons tiny"> lens </i> <a href="<?=action("ProductsController@buyHistory")?>"> hystorique des achats </a>
   </div>
 </div>
 
@@ -27,8 +27,13 @@
     <?php
       foreach ($products as $product)
       {
-        echo"<td>".$product->name."</td>";
-        echo"<td>".$product->getStock()."</td>";
+        if(!empty($product->getStock()))
+        {
+          echo"<tr>";
+          echo"<td>".$product->name."</td>";
+          echo"<td>".$product->getStock()."</td>";
+          echo"</tr>";
+        }
       }
      ?>
   </tbody>
