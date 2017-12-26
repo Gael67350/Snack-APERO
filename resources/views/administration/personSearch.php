@@ -42,8 +42,8 @@
             {
               echo "<tr>";
               echo "<td> <i class=\"material-icons\"> remove_circle </i> </td>";
-              echo "<td> ".$person->email ." </td>";
-              echo "<td> ".$person->phone ." </td>";
+              echo "<td> <a href=\"". action("UsersController@openUserManager",['id' => $person->id_user ]) ."\">".$person->email ."</a> </td>";
+              echo "<td> <a href=\"". action("UsersController@openUserManager",['id' => $person->id_user ]) ."\">".$person->phone ."</a> </td>";
               echo "</tr>";
             }
           ?>

@@ -41,7 +41,7 @@
           {
             echo "<tr>";
             echo "<td> <i class=\"material-icons\"> remove_circle </i> </td>";
-            echo "<td>".$product->name."</td>";
+            echo "<td> <a href=\"". action("ProductsController@openManager",['id' => $product->id_product]) ."\">".$product->name."</a> </td>";
             echo "</tr>";
           }
           ?>

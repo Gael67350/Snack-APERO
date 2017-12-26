@@ -31,6 +31,8 @@ Route::get('/admin/dispLog', 'ProductsController@displayLogs');
 Route::get('/admin/srchPers', 'UsersController@launchPersonSearch');
 Route::get('/admin/srchProd', 'ProductsController@launchProductSearch');
 Route::get('/admin/reinitDb', 'PurchasesController@initDbReinitialiser');
+Route::get('/admin/productMgr', 'ProductsController@openManager');
+Route::get('/admin/userMgr', 'UsersController@openUserManager');
 
 Route::get('/stock/showStock', 'ProductsController@displayStocks');
 Route::get('/stock/insertBuy', 'ProductsController@recordBuy');

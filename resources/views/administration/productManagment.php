@@ -20,15 +20,33 @@
 
 <form class="" action="index.html" method="post">
   <div class="input-field">
-      <input id="productName" type="text" value="">
+      <input id="productName" type="text"
+      <?php
+        if(isset($product))
+        {
+          echo"value=\"". $product->name ."\">";
+        }
+      ?>
       <label for="productName"> Nom du produit </label>
   </div>
   <div class="input-field">
-      <input id="productPrice" type="number" min="00.00" step="00.01">
+      <input id="productPrice" type="number" min="00.00" step="00.01"
+       <?php
+        if(isset($product))
+        {
+          echo"value=\"". $product->price ."\">";
+        }
+      ?>
       <label for="productName"> Prix du produit </label>
   </div>
   <div class="input-field">
-      <input id="productMinQuantity" type="number" value="" min="0">
+      <input id="productMinQuantity" type="number" min="0"
+      <?php
+        if(isset($product))
+        {
+          echo"value=\"". $product->minQuantity ."\">";
+        }
+      ?>
       <label for="productName"> Quantité minimale a avoir en stock </label>
   </div>
 

@@ -42,4 +42,17 @@ class ProductsController extends Controller {
       return $this->render('stock.buyHistory',['purchases' => $associatedPurchases ]);
     }
 
+    public function openManager()
+    {
+      if(isset($_GET['id']))
+      {
+        $product = Models\Product::find($_GET['id']);
+        return $this->render("administration.productManagment" , ['product' => $product]);
+      }
+      else
+      {
+
+      }
+    }
+
 }

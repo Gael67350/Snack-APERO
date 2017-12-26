@@ -26,4 +26,17 @@ class UsersController extends Controller {
       $persons = User::all();
       return $this->render('administration.personSearch' , ['persons' => $persons]);
     }
+
+    public function openUserManager()
+    {
+      if(isset($_GET['id']))
+      {
+        $person = User::find($_GET['id']);
+        return $this->render('administration.personEdit', ['managed'=>$person]);
+      }
+      else
+      {
+        return $this->render('administration.personEdit');
+      }
+    }
 }

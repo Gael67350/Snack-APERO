@@ -21,19 +21,37 @@
 
 <form class="" action="index.html" method="post">
   <div class="input-field">
-      <input id="email" type="email" class="validate">
+      <input id="email" type="email" class="validate"
+      <?php
+        if(isset($managed))
+        {
+          echo"value=\"". $managed->email ."\">";
+        }
+      ?>
       <label for="email" data-error="wrong" data-success="right"> Adresse Mail</label>
   </div>
   <div class="input-field">
-      <input id="phone" type="text" class="validate">
+      <input id="phone" type="text" class="validate"
+      <?php
+        if(isset($managed))
+        {
+          echo"value=\"". $managed->phone ."\">";
+        }
+      ?>
       <label for="phone"> Numero de telephone </label>
   </div>
   <div class="input-field">
       <input id="password" type="password" class="validate">
-      <label for="password"> Mot de passe </label>
+      <label for="password"> Mot de passe (entrer un mot de passe pour le changer) </label>
   </div>
   <div class="input-field">
-      <input id="privilegeInput" type="number" class="validate" min="0" max="2">
+      <input id="privilegeInput" type="number" class="validate" min="0" max="2"
+      <?php
+        if(isset($managed))
+        {
+          echo"value=\"". $managed->privilege ."\">";
+        }
+      ?>
       <label for="privilegeInput"> Privilège </label>
   </div>
 </form>
