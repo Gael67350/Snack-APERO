@@ -51,7 +51,7 @@ class ProductsController extends Controller {
       }
       else
       {
-
+          return $this->render("administration.productManagment");
       }
     }
 

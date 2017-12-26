@@ -27,7 +27,9 @@
             <i class="material-icons tiny"> search </i> texte recherché
       </div>
       </label>
+</div>
 
+    <a href="<?= action("ProductsController@openManager") ?>" class="waves-effect waves-light btn"> Créer un nouveau produit </a>
       <table class="striped">
         <thead>
           <tr>
@@ -47,5 +49,3 @@
           ?>
         </tbody>
       </table>
-
-</div>

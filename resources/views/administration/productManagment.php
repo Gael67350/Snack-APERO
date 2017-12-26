@@ -26,6 +26,10 @@
         {
           echo"value=\"". $product->name ."\">";
         }
+        else
+        {
+          echo "value=\"\">";
+        }
       ?>
       <label for="productName"> Nom du produit </label>
   </div>
@@ -36,6 +40,10 @@
         {
           echo"value=\"". $product->price ."\">";
         }
+        else
+        {
+          echo "value=\"\">";
+        }
       ?>
       <label for="productName"> Prix du produit </label>
   </div>
@@ -45,6 +53,10 @@
         if(isset($product))
         {
           echo"value=\"". $product->minQuantity ."\">";
+        }
+        else
+        {
+          echo "value=\"\">";
         }
       ?>
       <label for="productName"> Quantité minimale a avoir en stock </label>

@@ -27,6 +27,10 @@
         {
           echo"value=\"". $managed->email ."\">";
         }
+        else
+        {
+          echo "value=\"\">";
+        }
       ?>
       <label for="email" data-error="wrong" data-success="right"> Adresse Mail</label>
   </div>
@@ -36,6 +40,10 @@
         if(isset($managed))
         {
           echo"value=\"". $managed->phone ."\">";
+        }
+        else
+        {
+          echo "value=\"\">";
         }
       ?>
       <label for="phone"> Numero de telephone </label>
@@ -50,6 +58,10 @@
         if(isset($managed))
         {
           echo"value=\"". $managed->privilege ."\">";
+        }
+        else
+        {
+          echo "value=\"\">";
         }
       ?>
       <label for="privilegeInput"> Privilège </label>

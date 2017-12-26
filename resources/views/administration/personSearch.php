@@ -27,8 +27,9 @@
             <i class="material-icons tiny"> search </i> texte recherché
       </div>
       </label>
-
-      <table class="striped">
+</div>
+    <a href="<?=action("UsersController@openUserManager")?>" class="waves-effect waves-light btn"> Créer un nouveau compte utilisateur </a>
+    <table class="striped">
         <thead>
           <tr>
             <th></th>
@@ -49,5 +50,3 @@
           ?>
         </tbody>
       </table>
-
-</div>
