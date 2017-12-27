@@ -54,11 +54,11 @@ class ProductsController extends Controller {
 
     public function openManager()
     {
+      $productListUncomposed = Models\Product::getAllUncomposed();
+      $productListComposed = Models\Product::getAllcomposed();
       if(isset($_GET['id']))
       {
         $product = Models\Product::find($_GET['id']);
-        $productListUncomposed = Models\product::getAllUncomposed();
-        $productListComposed = Models\product::getAllcomposed();
         if(isset($product))
         {
           $components = $product->getComponents();

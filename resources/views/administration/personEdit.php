@@ -113,6 +113,7 @@
               else
               {
                 echo "<tr>";
+                echo "<td></td>";
                 echo "<td> <input type=\"text\" name=\"prenomInput\" value=\"\"> </td>";
                 echo "<td> <input type=\"text\" name=\"nomInput\" value=\"\"></td>";
                 echo "<td> <input type=\"text\" name=\"dateInput\" value=\"\" class=\"datepicker\"></td>";
