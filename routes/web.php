@@ -11,6 +11,8 @@
 |
 */
 
+use App\Http\Middleware\AuthenticatedAsAdmin;
+
 // Default route
 /*
 Route::get('/', function () {
@@ -20,27 +22,32 @@ Route::get('/', function () {
 
 Route::get('/', 'HomeController@index')->name('home');
 Route::get('/user/profile/{id}', 'UsersController@profile')->name('profile');
+Route::get('/sumup/childAffich', 'ChildsController@showChilds');
 
 // Authentication Routes
 Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');
 Route::post('login', 'Auth\LoginController@login');
 Route::get('logout', 'Auth\LoginController@logout')->name('logout');
 
-//pages linkers
-Route::get('/admin/dispLog', 'ProductsController@displayLogs');
-Route::get('/admin/srchPers', 'UsersController@launchPersonSearch');
-Route::get('/admin/srchProd', 'ProductsController@launchProductSearch');
-Route::get('/admin/reinitDb', 'PurchasesController@initDbReinitialiser');
-Route::get('/admin/productMgr', 'ProductsController@openManager');
-Route::get('/admin/userMgr', 'UsersController@openUserManager');
+// Pages linkers
+Route::group(['prefix' => 'admin', 'middleware' => AuthenticatedAsAdmin::class], function () {
+    Route::get('dispLog', 'ProductsController@displayLogs');
+    Route::get('srchPers', 'UsersController@launchPersonSearch');
+    Route::get('srchProd', 'ProductsController@launchProductSearch');
+    Route::get('reinitDb', 'PurchasesController@initDbReinitialiser');
+    Route::get('productMgr', 'ProductsController@openManager');
+    Route::get('userMgr', 'UsersController@openUserManager');
+});
 
-Route::get('/stock/showStock', 'ProductsController@displayStocks');
-Route::get('/stock/insertBuy', 'ProductsController@recordBuy');
-Route::get('/stock/verifyBuy', 'ProductsController@buyHistory');
+Route::group(['prefix' => 'stock'], function () {
+    Route::get('showStock', 'ProductsController@displayStocks');
+    Route::get('insertBuy', 'ProductsController@recordBuy');
+    Route::get('verifyBuy', 'ProductsController@buyHistory');
+});
 
-Route::get('/sumup/childAffich', 'ChildsController@showChilds');
-
-Route::get('/consumption/srchChld', 'ConsumptionsController@showChildSrch');
-Route::get('/consumption/nuConsum', 'ChildsController@openChildManager');
-Route::get('/consumption/delConsum','ConsumptionsController@showExistingConsumption');
-Route::get('/consumption/insInflow',"InflowsController@openInflows");
+Route::group(['prefix' => 'consumption'], function () {
+    Route::get('srchChld', 'ConsumptionsController@showChildSrch');
+    Route::get('nuConsum', 'ChildsController@openChildManager');
+    Route::get('delConsum', 'ConsumptionsController@showExistingConsumption');
+    Route::get('insInflow', "InflowsController@openInflows");
+});
