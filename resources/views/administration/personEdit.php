@@ -86,7 +86,7 @@
     <tbody>
 
         <?php
-              if(isset($childrenRelated))
+              if(isset($childrenRelated[0]))
               {
                 foreach ($childrenRelated as $child)
                 {
@@ -97,7 +97,10 @@
                   echo "<td> <input type=\"text\" name=\"dateInput\" value=\"$child->birthDate\" class=\"datepicker\"></td>";
                   echo "<td> ".$child->getCategory()->name." </td>";
                   echo "<td> ".$child->getBalance()." </td>";
-                  echo "<td> <button type=\"button\" name=\"solder\" class=\"waves-effect waves-light btn\"> Solder </button> </td>";
+                  if($child->getBalance()!=0)
+                  {
+                    echo "<td> <button type=\"button\" name=\"solder\" class=\"waves-effect waves-light btn\"> Solder </button> </td>";
+                  }
                   echo "</tr>";
                 }
                 echo "<tr>";

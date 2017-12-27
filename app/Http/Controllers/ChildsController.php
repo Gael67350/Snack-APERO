@@ -35,6 +35,8 @@ class ChildsController extends Controller {
    public function openChildManager()
    {
      $child = Models\Child::find($_GET['id']);
-     return $this->render('consumption.newConsumption' , ['managed' => $child]);
+     $productUncomposed= Models\Product::getAllBuyableUncomposed();
+     $productComposed = Models\Product::getAllBuyableComposed();
+     return $this->render('consumption.newConsumption' , ['managed' => $child ,"productComposed" => $productComposed, 'productUncomposed' => $productUncomposed]);
    }
 }

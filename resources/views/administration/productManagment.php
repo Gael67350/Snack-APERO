@@ -72,28 +72,91 @@
       </tr>
     </thead>
     <tbody>
-      <tr>
-        <td> <i class="material-icons"> remove_circle </i> </td>
-        <td>
-           <select class="browser-default" name="productPicker">
-            <option value="" disabled selected> selectionnez un produit </option>
-              <optgroup label="Produits Simples">
-                <option value="sucette">sucette</option>
-                <option value="painChoco">pain au chocolat</option>
-                <option value="can">canette au choix</option>
-              </optgroup>
-              <optgroup label="Produits composés">
-                <option value="menu1">Menu1</option>
-                <option value="menu 2">Menu 2</option>
-                <option value="painBarChoc">pain avec barette de chocolat</option>
-              </optgroup>
-          </td>
-          <td>
-            <div class="input-field">
-              <input type="number" name="prodQuantity" value="" min="0">
-            </div>
-          </td>
-      </tr>
+      <?php
+        if(isset($components[0]))
+        {
+          foreach ($components as $component)
+          {
+            echo "<tr>
+                  <td> <i class=\"material-icons\"> remove_circle </i> </td>
+                  <td>
+                   <select class=\"browser-default\" name=\"productPicker\" value=\"".$component->name."\">
+                   <option value=\".$component->name.\" disabled selected>".$component->name." </option>
+                     <optgroup label=\"Produits Simples\">";
+                     foreach ($productListUncomposed as $product)
+                     {
+                       echo "<option value=\"".$product->name."\">$product->name</option>";
+                     }
+                    echo" </optgroup>
+                     <optgroup label=\"Produits composés\">";
+                     foreach ($productListComposed as $product)
+                     {
+                       echo "<option value=\"".$product->name."\">$product->name</option>";
+                     }
+                     echo"</optgroup>
+                     </td>
+                     <td>
+                     <div class=\"input-field\">
+                       <input type=\"number\" name=\"prodQuantity\" value=\"$component->quantity\" min=\"0\">
+                     </div>
+                   </td>
+                 </tr>";
+          }
+          //affichage supplémentaire pour ajouter un élément
+          echo "<tr>
+                <td> <i class=\"material-icons\"> remove_circle </i> </td>
+                <td>
+                 <select class=\"browser-default\" name=\"productPicker\">
+                   <option value=\"\" disabled selected> selectionnez un produit </option>
+                   <optgroup label=\"Produits Simples\">";
+                   foreach ($productListUncomposed as $product)
+                   {
+                     echo "<option value=\"".$product->name."\">$product->name</option>";
+                   }
+                 echo" </optgroup>
+                   <optgroup label=\"Produits composés\">";
+                   foreach ($productListComposed as $product)
+                   {
+                     echo "<option value=\"".$product->name."\">$product->name</option>";
+                   }
+                   echo"</optgroup>
+                   </td>
+                   <td>
+                   <div class=\"input-field\">
+                     <input type=\"number\" name=\"prodQuantity\" value=\"\" min=\"0\">
+                   </div>
+                 </td>
+               </tr>";
+        }
+        else
+        {
+           echo "<tr>
+                 <td> <i class=\"material-icons\"> remove_circle </i> </td>
+                 <td>
+                  <select class=\"browser-default\" name=\"productPicker\">
+                    <option value=\"\" disabled selected> selectionnez un produit </option>
+                    <optgroup label=\"Produits Simples\">";
+                    foreach ($productListUncomposed as $product)
+                    {
+                      echo "<option value=\"".$product->name."\">$product->name</option>";
+                    }
+                  echo" </optgroup>
+                    <optgroup label=\"Produits composés\">";
+                    foreach ($productListComposed as $product)
+                    {
+                      echo "<option value=\"".$product->name."\">$product->name</option>";
+                    }
+                    echo"</optgroup>
+                    </td>
+                    <td>
+                    <div class=\"input-field\">
+                      <input type=\"number\" name=\"prodQuantity\" value=\"\" min=\"0\">
+                    </div>
+                  </td>
+                </tr>";
+        }
+      ?>
+
     </tbody>
   </table>
 

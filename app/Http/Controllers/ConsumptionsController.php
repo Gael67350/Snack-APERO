@@ -21,6 +21,7 @@ class ConsumptionsController extends Controller {
     {
       $child = Models\Child::find($_GET['id']);
       $consumptions = Models\Consumption::getRelatedConsumption($child->id_child);
-      return $this->render("consumption.delConsumption" , ['managed' => $child , 'associatedConsumption' => $consumptions]);
+      $buyables = Models\Product::getAllBuyableComposed();
+      return $this->render("consumption.delConsumption" , ['managed' => $child , 'associatedConsumption' => $consumptions , 'buyable' => $buyables]);
     }
 }

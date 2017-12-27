@@ -63,8 +63,31 @@ class Product extends Model {
 
     public static function getCurrentAlerts()
     {
-      /*a patcher*/
       return \DB::table('log')->select('*')->where('created' , ">=" , date("Y-m-d", strtotime(date("Y-m-d"). '- 8 day')))->get();
     }
 
+    public function getComponents()
+    {
+      return \DB::select(\DB::raw("select * FROM product p, composedof co WHERE co.id_product_1 = p.id_product AND co.id_product =".$this->id_product));
+    }
+
+    public static function getAllUncomposed()
+    {
+      return \DB::select(\DB::raw("select * FROM product p WHERE p.id_product NOT IN (SELECT id_product FROM composedof)"));
+    }
+
+    public static function getAllComposed()
+    {
+      return \DB::select(\DB::raw("select * FROM product p WHERE p.id_product IN (SELECT id_product FROM composedof)"));
+    }
+
+    public static function getAllBuyableUncomposed()
+    {
+      return \DB::select(\DB::raw("select * FROM product p WHERE p.price IS NOT NULL AND p.id_product NOT IN (SELECT id_product FROM composedof)"));
+    }
+
+    public static function getAllBuyableComposed()
+    {
+      return \DB::select(\DB::raw("select * FROM product p WHERE p.price IS NOT NULL AND p.id_product IN (SELECT id_product FROM composedof)"));
+    }
 }

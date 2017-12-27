@@ -44,6 +44,7 @@ class ProductsController extends Controller {
       return $this->render('stock.buyInsert');
     }
 
+
     public function buyHistory()
     {
       $user = Auth::user();
@@ -56,11 +57,21 @@ class ProductsController extends Controller {
       if(isset($_GET['id']))
       {
         $product = Models\Product::find($_GET['id']);
-        return $this->render("administration.productManagment" , ['product' => $product]);
+        $productListUncomposed = Models\product::getAllUncomposed();
+        $productListComposed = Models\product::getAllcomposed();
+        if(isset($product))
+        {
+          $components = $product->getComponents();
+          return $this->render("administration.productManagment" , ['product' => $product , 'components' => $components  , 'productListUncomposed' => $productListUncomposed , 'productListComposed' => $productListComposed]);
+        }
+        else
+        {
+          return $this->render("administration.productManagment",['product' => $product   , 'productListUncomposed' => $productListUncomposed , 'productListComposed' => $productListComposed]);
+        }
       }
       else
       {
-          return $this->render("administration.productManagment");
+          return $this->render("administration.productManagment",[ 'productListUncomposed' => $productListUncomposed , 'productListComposed' => $productListComposed]);
       }
     }
 

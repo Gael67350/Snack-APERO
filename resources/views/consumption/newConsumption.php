@@ -39,14 +39,20 @@
             <select class="browser-default" name="productPicker">
               <option value="" disabled selected> selectionnez un produit </option>
               <optgroup label="Produits Simples">
-                <option value="sucette">sucette</option>
-                <option value="painChoco">pain au chocolat</option>
-                <option value="can">canette au choix</option>
+              <?php
+              foreach ($productUncomposed as $product)
+                {
+                  echo "<option value=\"".$product->name."\">$product->name</option>";
+                }
+              ?>
               </optgroup>
               <optgroup label="Produits composés">
-                <option value="menu1">Menu1</option>
-                <option value="menu 2">Menu 2</option>
-                <option value="painBarChoc">pain avec barette de chocolat</option>
+              <?php
+                foreach ($productComposed as $product)
+                {
+                  echo "<option value=\"".$product->name."\">$product->name</option>";
+                }
+              ?>
               </optgroup>
             </select>
           </td>
@@ -59,57 +65,6 @@
           <td>
             xxxxxxxxx
           </td>
-        </tr>
-        <tr>
-          <td>
-              <i class="material-icons"> remove_circle </i>
-          </td>
-          <td>
-            <select class="browser-default" name="productPicker">
-              <option value="" disabled selected> selectionnez un produit </option>
-              <optgroup label="Produits Simples">
-                <option value="sucette">sucette</option>
-                <option value="painChoco">pain au chocolat</option>
-                <option value="can">canette au choix</option>
-              </optgroup>
-              <optgroup label="Produits composés">
-                <option value="menu1">Menu1</option>
-                <option value="menu 2">Menu 2</option>
-                <option value="painBarChoc">pain avec barette de chocolat</option>
-              </optgroup>
-            </select>
-          </td>
-          <td>
-            xxxxxxxxx
-          </td>
-          <td>
-            <input type="number" name="qqtprodx" value="" min="0" class="smallPicker">
-          </td>
-          <td>
-            xxxxxxxxx
-          </td>
-        </tr>
-        <tr>
-          <td>
-          </td>
-          <td>
-            <select class="browser-default" name="productPicker">
-              <option value="" disabled selected> selectionnez un produit </option>
-              <optgroup label="Produits Simples">
-                <option value="sucette">sucette</option>
-                <option value="painChoco">pain au chocolat</option>
-                <option value="can">canette au choix</option>
-              </optgroup>
-              <optgroup label="Produits composés">
-                <option value="menu1">Menu1</option>
-                <option value="menu 2">Menu 2</option>
-                <option value="painBarChoc">pain avec barette de chocolat</option>
-              </optgroup>
-            </select>
-          </td>
-          <td></td>
-          <td></td>
-          <td></td>
         </tr>
       </tbody>
     </table>
