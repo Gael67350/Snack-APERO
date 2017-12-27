@@ -14,7 +14,7 @@ class ChildsController extends Controller {
 
     public function showChilds()
     {
-    $childrenRelated = Models\Child::getRelatedChild(Auth::user()->user_id);
+    $childrenRelated = Auth::User()->getRelatedChild();
     if(isset($childrenRelated[0]))
     {
       if(!isset($_POST['toDisp']))

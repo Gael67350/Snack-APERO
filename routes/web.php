@@ -44,3 +44,4 @@ Route::get('/consumption/srchChld', 'ConsumptionsController@showChildSrch');
 Route::get('/consumption/nuConsum', 'ChildsController@openChildManager');
 Route::get('/consumption/delConsum','ConsumptionsController@showExistingConsumption');
 Route::get('/consumption/insInflow',"InflowsController@openInflows");
+Route::post('/consumption/insInflow/validate',"InflowsController@insertNewInflow");

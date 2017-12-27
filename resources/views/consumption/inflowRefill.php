@@ -16,13 +16,14 @@
 <h5>Nouvelle recharge pour</h5>
 <h5><?=$managed->name?> <?=$managed->lastName?></h5>
 
-<form class="" action="index.html" method="post">
+  <?= Form::open(['url' => 'consumption/insInflow/validate']) ?>
   <div class="input-field">
-      <input id="ammount" type="number" min="0" step="0.01">
-      <label for="ammount"> Montant à ajouter </label>
+    <?= Form::number('ammount') ?>
+    <?= Form::label('ammount', 'Montant de la recharge') ?>
+    <?= Form::hidden('id' , $managed->id)?>
   </div>
 
-  <button class="btn waves-effect waves-light" type="submit" name=""> Valider </button>
+  <?= Form::submit('Enregistrer l\'approvisionnement' , ['class' => 'waves-effect waves-light btn']) ?>
 </form>
 
 <table class="striped">
