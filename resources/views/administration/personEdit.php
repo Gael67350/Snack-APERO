@@ -84,15 +84,38 @@
       </tr>
     </thead>
     <tbody>
-      <tr>
-        <td> <i class="material-icons"> remove_circle </i></td>
-        <td> <input type="text" name="prenomInput" value=""> </td>
-        <td> <input type="text" name="nomInput" value=""></td>
-        <td> <input type="text" name="dateInput" value="" class="datepicker"></td>
-        <td> xxxxxxx </td>
-        <td> xxxxxxx </td>
-        <td> <button type="button" name="solder" class="waves-effect waves-light btn"> Solder </button> </td>
-      </tr>
+
+        <?php
+              if(isset($childrenRelated))
+              {
+                foreach ($childrenRelated as $child)
+                {
+                  echo "<tr>";
+                  echo "<td> <i class=\"material-icons\"> remove_circle </i></td>";
+                  echo "<td> <input type=\"text\" name=\"prenomInput\" value=\"$child->name\"> </td>";
+                  echo "<td> <input type=\"text\" name=\"nomInput\" value=\"$child->lastName\"></td>";
+                  echo "<td> <input type=\"text\" name=\"dateInput\" value=\"$child->birthDate\" class=\"datepicker\"></td>";
+                  echo "<td> ".$child->getCategory()->name." </td>";
+                  echo "<td> ".$child->getBalance()." </td>";
+                  echo "<td> <button type=\"button\" name=\"solder\" class=\"waves-effect waves-light btn\"> Solder </button> </td>";
+                  echo "</tr>";
+                }
+                echo "<tr>";
+                echo "<td></td>";
+                echo "<td> <input type=\"text\" name=\"prenomInput\" value=\"\"> </td>";
+                echo "<td> <input type=\"text\" name=\"nomInput\" value=\"\"></td>";
+                echo "<td> <input type=\"text\" name=\"dateInput\" value=\"\" class=\"datepicker\"></td>";
+                echo "</tr>";
+              }
+              else
+              {
+                echo "<tr>";
+                echo "<td> <input type=\"text\" name=\"prenomInput\" value=\"\"> </td>";
+                echo "<td> <input type=\"text\" name=\"nomInput\" value=\"\"></td>";
+                echo "<td> <input type=\"text\" name=\"dateInput\" value=\"\" class=\"datepicker\"></td>";
+                echo "</tr>";
+              }
+        ?>
     </tbody>
   </table>
   <input class="waves-effect waves-light btn" type="submit" name="valider" value="Enregistrer">

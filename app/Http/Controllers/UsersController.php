@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\User;
+use App\Models;
 
 class UsersController extends Controller {
 
@@ -16,14 +16,14 @@ class UsersController extends Controller {
             abort(403, 'Accès interdit');
         }
 
-        $user = User::findOrFail($id);
+        $user = Models\User::findOrFail($id);
 
         return $this->render('user.profile', compact('user'));
     }
 
     public function launchPersonSearch()
     {
-      $persons = User::all();
+      $persons = Models\User::all();
       return $this->render('administration.personSearch' , ['persons' => $persons]);
     }
 
@@ -31,8 +31,9 @@ class UsersController extends Controller {
     {
       if(isset($_GET['id']))
       {
-        $person = User::find($_GET['id']);
-        return $this->render('administration.personEdit', ['managed'=>$person]);
+        $person = Models\User::find($_GET['id']);
+        $childrenRelated = $person->children()->get();
+        return $this->render('administration.personEdit', ['managed'=>$person ,'childrenRelated' => $childrenRelated]);
       }
       else
       {

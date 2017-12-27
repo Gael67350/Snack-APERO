@@ -46,13 +46,14 @@ class Child extends Model {
         $this->attributes['name'] = ucfirst($value);
     }
 
-    public function getBalance() {
-        return number_format(\DB::table('child_balance')->select('balance')->where(['id_child' => $this->id_child])->value('balance'), 2);
+    public function getCategory()
+    {
+        return \DB::table('category')->where(['id_category' => $this->id_category])->first();
     }
 
-    public static function getRelatedChild($id)
-    {
-      return \DB::table('child')->where(['id_user' => $id])->get();
+
+    public function getBalance() {
+        return number_format(\DB::table('child_balance')->select('balance')->where(['id_child' => $this->id_child])->value('balance'), 2);
     }
 
 }
