@@ -61,4 +61,10 @@ class Product extends Model {
       return \DB::table('log')->get();
     }
 
+    public static function getCurrentAlerts()
+    {
+      /*a patcher*/
+      return \DB::table('log')->select('*')->where('created' , ">=" , date("Y-m-d", strtotime(date("Y-m-d"). '- 8 day')))->get();
+    }
+
 }

@@ -168,3 +168,9 @@ body {
     line-height: inherit !important;
     font-size: inherit !important;
 }
+
+/*boite d'alerte dans le cas ou un niveau de stocks est limite*/
+.alertBox
+{
+  background-color: red !important;
+}

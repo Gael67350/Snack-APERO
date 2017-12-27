@@ -19,6 +19,17 @@
 
 <h3> Historique des alertes de stocks enregistrées </h3>
 
+<?php /* bandeau d'alerte de stock pour l'administrateur*/
+      if(isset($CurrentAlert[0]))
+      {
+        echo "<div class=\"red\"> ";
+          foreach ($CurrentAlert as $displayedLog) {
+            echo"<p> Alerte datant de : ".$displayedLog->created." message Associé : ".$displayedLog->message;
+          }
+          echo "<p class=\"borderedConten\"></p>";
+        echo "</div>";
+      }
+?>
 <table class="striped">
   <thead>
     <tr>

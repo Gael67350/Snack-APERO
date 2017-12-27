@@ -15,19 +15,28 @@ class ProductsController extends Controller {
     public function displayLogs()
     {
       $logListing = Models\Product::getLogs();
-      return $this->render('administration.stockAlertHistory' , ['logListing' => $logListing]);
+      $CurrentAlert = Models\Product::getCurrentAlerts();
+      return $this->render('administration.stockAlertHistory' , ['logListing' => $logListing , 'CurrentAlert' => $CurrentAlert]);
     }
 
     public function launchProductSearch()
     {
       $products = Models\Product::all();
-      return $this->render('administration.productSearch' , ['products' => $products]);
+      return $this->render('administration.productSearch' , ['products' => $products  ]);
     }
 
     public function displayStocks()
     {
       $products = Models\Product::all();
-      return $this->render('stock.stockSumup',['products' => $products]);
+      if(Auth::user()->isadmin())
+      {
+        $CurrentAlert = Models\Product::getCurrentAlerts();
+        return $this->render('stock.stockSumup',['products' => $products, 'CurrentAlert' => $CurrentAlert]);
+      }
+      else
+      {
+        return $this->render('stock.stockSumup',['products' => $products]);
+      }
     }
 
     public function recordBuy()

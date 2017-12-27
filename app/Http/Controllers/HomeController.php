@@ -25,12 +25,20 @@ class HomeController extends Controller {
     {
         $user = Auth::user();
 
-        if ($user->isAdmin() || $user->isVolunteer()) {
+        if ($user->isAdmin() || $user->isVolunteer())
+        {
             $children = Models\Child::all();
             $products = Models\Product::all();
-
-            return $this->render('home.indexAdmin', ['children' => $children, 'products' => $products]);
-        }
+            if($user->isAdmin())
+            {
+              $CurrentAlert = Models\Product::getCurrentAlerts();
+              return $this->render('home.indexAdmin', ['children' => $children, 'products' => $products, 'CurrentAlert' => $CurrentAlert]);
+            }
+            else
+            {
+              return $this->render('home.indexAdmin', ['children' => $children, 'products' => $products]);
+            }
+          }
         else
         {
           $childrenRelated = Models\Child::getRelatedChild(Auth::user()->user_id);
