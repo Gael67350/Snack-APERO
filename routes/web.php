@@ -55,4 +55,5 @@ Route::group(['prefix' => 'consumption'], function () {
     Route::get('nuConsum', 'ChildsController@openChildManager');
     Route::get('delConsum', 'ConsumptionsController@showExistingConsumption');
     Route::get('insInflow', "InflowsController@openInflows");
+    Route::post('insInflow/validate',"InflowsController@insertNewInflow");
 });
