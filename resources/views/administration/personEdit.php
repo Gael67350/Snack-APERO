@@ -19,7 +19,7 @@
 
 <h3>Gestion de l'utilisateur </h3>
 
-  <?= Form::open(['url' => 'consumption/insInflow/validate']/*a définir*/) ?>
+  <?= Form::open(/*a définir*/) ?>
   <div class="input-field">
       <?php
         if(isset($managed))

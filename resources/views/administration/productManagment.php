@@ -20,43 +20,42 @@
 
 <form class="" action="index.html" method="post">
   <div class="input-field">
-      <input id="productName" type="text"
+      <?= Form::open(/*a définir*/) ?>
       <?php
         if(isset($product))
         {
-          echo"value=\"". $product->name ."\">";
+          echo Form::text('productName', $product->name );
         }
         else
         {
-          echo "value=\"\">";
+          echo Form::text('productName');
         }
       ?>
-      <label for="productName"> Nom du produit </label>
+      <?=Form::label('productName', 'Nom du produit');?>
   </div>
   <div class="input-field">
-      <input id="productPrice" type="number" min="00.00" step="00.01"
        <?php
         if(isset($product))
         {
-          echo"value=\"". $product->price ."\">";
+          echo Form::number('price', $product->price ,['min' => "00.00", 'step' => "00.01"]);
         }
         else
         {
-          echo "value=\"\">";
+          echo Form::number('price' , "" ,['min' => "00.00", 'step' => "00.01"]);
         }
       ?>
-      <label for="productName"> Prix du produit </label>
+      <?=Form::label('price', ' Prix du produit');?>
   </div>
   <div class="input-field">
       <input id="productMinQuantity" type="number" min="0"
       <?php
         if(isset($product))
         {
-          echo"value=\"". $product->minQuantity ."\">";
+          echo Form::number('minQuantityStock', $product->minQuantity ,['min' => "0"]);
         }
         else
         {
-          echo "value=\"\">";
+          echo Form::number('minQuantityStock',"" ,['min' => "0"]);
         }
       ?>
       <label for="productName"> Quantité minimale a avoir en stock </label>
