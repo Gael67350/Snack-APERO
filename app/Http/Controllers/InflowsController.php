@@ -19,10 +19,14 @@ class InflowsController extends Controller {
       return $this->render("consumption.inflowRefill" , ['managed' => $child , 'inflows' => $inflows]);
     }
 
-    public function insertNewInflow()
+    public function insertNewInflow(Request $request)
     {
-      \DB::table('inflow')->insert(['transactionDate' => date("Y-m-d") , 'amount' => $_POST['ammount'],'id_child' => $_POST['id']]);
-      return \Redirect::back();
+      $inflow = new Models\Inflow(['transactionDate' => date("Y-m-d") , 'amount' => $request->amount]);
+      Models\Child::findOrFail($request->id);
+      $inflow->id_child = $request->id;
+      $inflow->transactionDate = date("Y-m-d");
+      $inflow->save();
+      return \Redirect::Back();
     }
 
 }

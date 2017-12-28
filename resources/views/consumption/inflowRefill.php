@@ -18,10 +18,10 @@
 
   <?= Form::open(['url' => 'consumption/insInflow/validate']) ?>
   <div class="input-field">
-    <?= Form::number('ammount') ?>
-    <?= Form::label('ammount', 'Montant de la recharge') ?>
-    <?= Form::hidden('id' , $managed->id)?>
+    <?= Form::number('amount') ?>
+    <?= Form::label('amount', 'Montant de la recharge') ?>
   </div>
+  <?= Form::hidden('id' , $_GET['id'])?>
 
   <?= Form::submit('Enregistrer l\'approvisionnement' , ['class' => 'waves-effect waves-light btn']) ?>
 </form>

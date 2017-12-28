@@ -19,52 +19,49 @@
 
 <h3>Gestion de l'utilisateur </h3>
 
-<form class="" action="index.html" method="post">
+  <?= Form::open(['url' => 'consumption/insInflow/validate']/*a définir*/) ?>
   <div class="input-field">
-      <input id="email" type="email" class="validate"
       <?php
         if(isset($managed))
         {
-          echo"value=\"". $managed->email ."\">";
+            echo Form::email('mail',$managed->email);
         }
         else
         {
-          echo "value=\"\">";
-        }
-      ?>
-      <label for="email" data-error="wrong" data-success="right"> Adresse Mail</label>
+            echo Form::email('mail');
+        }?>
+        <?=Form::label('mail', 'Montant de la recharge');?>
   </div>
+
   <div class="input-field">
-      <input id="phone" type="text" class="validate"
       <?php
         if(isset($managed))
         {
-          echo"value=\"". $managed->phone ."\">";
+          echo Form::text('phone' , $managed->phone );
         }
         else
         {
-          echo "value=\"\">";
-        }
-      ?>
-      <label for="phone"> Numero de telephone </label>
+          echo Form::text('phone' , $managed->phone );
+        }?>
+        <?=Form::label('phone', 'Numero de telephone')?>
   </div>
+
   <div class="input-field">
-      <input id="password" type="password" class="validate">
-      <label for="password"> Mot de passe (entrer un mot de passe pour le changer) </label>
+      <?= Form::text('passwd');?>
+      <?= Form::label('passwd', ' Mot de passe (entrer un mot de passe pour le changer')?>
   </div>
+
   <div class="input-field">
-      <input id="privilegeInput" type="number" class="validate" min="0" max="2"
       <?php
         if(isset($managed))
         {
-          echo"value=\"". $managed->privilege ."\">";
+           echo Form::text('privilege' , $managed->privilege );
         }
         else
         {
-          echo "value=\"\">";
-        }
-      ?>
-      <label for="privilegeInput"> Privilège </label>
+          echo Form::text('privilege');
+        }?>
+      <?=Form::label('privilege', ' Privilège');?>
   </div>
 </form>
 
@@ -123,4 +120,5 @@
     </tbody>
   </table>
   <input class="waves-effect waves-light btn" type="submit" name="valider" value="Enregistrer">
+    <?= Form::close() ?>
 </form>

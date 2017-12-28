@@ -9,7 +9,7 @@
     <i class="material-icons tiny"> lens </i> <a href= <?= action("ConsumptionsController@showExistingConsumption" , ['id' => $_GET['id']]) ?> >Supresion d'une consommation existante </a>
   </div>
     <div class="icon-centered borderedTopBottom">
-     <i class="material-icons tiny"> lens </i> <a href= <?=action("ConsumptionsController@showExistingConsumption" , ['id' => $_GET['id']]) ?> > approvisionner le compte </a>
+     <i class="material-icons tiny"> lens </i> <a href= <?=action("InflowsController@openInflows" , ['id' => $_GET['id']]) ?> > approvisionner le compte </a>
    </div>
 </div>
 

@@ -19,7 +19,7 @@
 			<td><?= $child->lastName ?></td>
 			<td><?= date_format($child->birthDate, 'd-m-Y') ?></td>
 			<td><?= $child->category->name ?></td>
-			<td><?= number_format($child->getBalance(), 2) ?></td>
+			<td><?= number_format($child->getBalance(), 2) ?>
 			<td><a href="<?= action('ChildsController@display', ['id' => $child->id_child]) ?>">Voir</a></td>
 		</tr>
     <?php endforeach; ?>
