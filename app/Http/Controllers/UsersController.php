@@ -21,23 +21,18 @@ class UsersController extends Controller {
         return $this->render('user.profile', compact('user'));
     }
 
-    public function launchPersonSearch()
-    {
-      $persons = Models\User::all();
-      return $this->render('administration.personSearch' , ['persons' => $persons]);
+    public function launchPersonSearch() {
+        $persons = Models\User::all();
+        return $this->render('administration.personSearch', ['persons' => $persons]);
     }
 
-    public function openUserManager()
-    {
-      if(isset($_GET['id']))
-      {
-        $person = Models\User::find($_GET['id']);
-        $childrenRelated = $person->children()->get();
-        return $this->render('administration.personEdit', ['managed'=>$person ,'childrenRelated' => $childrenRelated]);
-      }
-      else
-      {
-        return $this->render('administration.personEdit');
-      }
+    public function openUserManager($id) {
+        if (!is_null($id)) {
+            $person = Models\User::find($id);
+            $childrenRelated = $person->children()->get();
+            return $this->render('administration.personEdit', ['managed' => $person, 'childrenRelated' => $childrenRelated]);
+        } else {
+            return $this->render('administration.personEdit');
+        }
     }
 }

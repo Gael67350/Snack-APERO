@@ -21,8 +21,8 @@ Route::get('/', function () {
 */
 
 Route::get('/', 'HomeController@index')->name('home');
+Route::get('/home/{id}', 'HomeController@index')->name('homeAlt');
 Route::get('/user/profile/{id}', 'UsersController@profile')->name('profile');
-Route::get('/sumup/childAffich', 'ChildsController@showChilds');
 
 // Authentication Routes
 Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');
@@ -36,7 +36,12 @@ Route::group(['prefix' => 'admin', 'middleware' => AuthenticatedAsAdmin::class],
     Route::get('srchProd', 'ProductsController@launchProductSearch');
     Route::get('reinitDb', 'PurchasesController@initDbReinitialiser');
     Route::get('productMgr', 'ProductsController@openManager');
-    Route::get('userMgr', 'UsersController@openUserManager');
+    Route::get('userMgr/{id?}', 'UsersController@openUserManager');
+});
+
+Route::group(['prefix' => 'children'], function () {
+    Route::get('/', 'ChildsController@index');
+    Route::get('/display/{id}', 'ChildsController@display');
 });
 
 Route::group(['prefix' => 'stock'], function () {

@@ -102,9 +102,4 @@ class User extends Model implements Authenticatable {
     public function getRememberTokenName() {
         return 'remember_token';
     }
-
-    public function getRelatedChild()
-    {
-      return \DB::table('child')->where(['id_user' => $this->id])->get();
-    }
 }
