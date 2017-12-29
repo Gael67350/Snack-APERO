@@ -19,7 +19,7 @@
 
 <h5>Nouvelle consommation pour <?= $child->name ?> <?= $child->lastName ?></h5>
 
-<?= Form::open(['url' => action('ConsumptionsController@showChildSrch')]) ?>
+<?= Form::open(['url' => action('ConsumptionsController@insert')]) ?>
 <table class='striped'>
 	<thead>
 	<tr>
@@ -35,7 +35,7 @@
 	<tr class="dynamic-row">
 		<td><i class="material-icons"> remove_circle </i></td>
 		<td>
-			<select class="browser-default" name="productPicker">
+			<select class="browser-default" name="0">
 				<option value="" disabled selected>Sélectionnez un produit</option>
 
 				<optgroup label="Produits Simples">
@@ -59,8 +59,12 @@
 </table>
 <p> Prix total de la consommation : <span class="totalPrice">--,--</span> €</p>
 <?= Form::submit('Valider la consommation', ['class' => 'waves-effect waves-light btn btn-spaced']) ?>
+<?= Form::hidden('id_child', $child->id_child) ?>
+<?= Form::hidden('number', 0, ['id' => 'dynamic-number']) ?>
 <?= Form::close() ?>
 
 <span class="hidden" id="dynamic-data">
 	<?= $json ?>
 </span>
+
+<script type="text/javascript" src="<?= asset('/js/productPrice.js') ?>"></script>

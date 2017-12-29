@@ -59,4 +59,5 @@ Route::group(['prefix' => 'consumption'], function () {
     Route::get('insInflow/{id}', "InflowsController@openInflows");
     Route::post('insInflow/validate',"InflowsController@insertNewInflow");
     Route::get('delInflow/{id}', 'InflowsController@delInflow');
+    Route::post('insert', 'ConsumptionsController@insert');
 });

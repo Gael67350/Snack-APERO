@@ -13,13 +13,17 @@ var dynamicRow = {
         var used = false;
 
         this.row.attr('id', this.id);
+        this.row.find($('select')).attr('name', "c" + this.id);
+        this.row.find($('.smallPicker')).attr('name', "q" + this.id);
         this.id++;
         this.number++;
+        $('#dynamic-number')[0].value = this.number;
 
         this.row.find($('i'))[0].onclick = function () {
             if (dynamicRow.number - 1 > 0) {
                 $(dynamicRow.row[dynamicRow.row[0].id]).remove();
                 dynamicRow.number--;
+                $('#dynamic-number')[0].value = dynamicRow.number;
             }
         };
 
@@ -52,9 +56,12 @@ var dynamicRow = {
 
         clone.attr('id', this.id);
 
+        this.root.append(clone);
+        clone.find($('select')).attr('name', "c" + this.id);
+        clone.find($('.smallPicker')).attr('name', "q" + this.id);
         this.id++;
         this.number++;
-        this.root.append(clone);
+        $('#dynamic-number')[0].value = this.number;
         this.updateRow();
 
         clone.find($('.smallPicker'))[0].value = 1;
@@ -65,6 +72,7 @@ var dynamicRow = {
             if (dynamicRow.number - 1 > 0) {
                 $(dynamicRow.row[clone[0].id]).remove();
                 dynamicRow.number--;
+                $('#dynamic-number')[0].value(dynamicRow.number);
             }
         };
 
