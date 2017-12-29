@@ -43,7 +43,7 @@
     <?php foreach ($inflows as $inflow): ?>
 		<tr>
             <?php if (date("Y-m-d", strtotime($inflow->transactionDate)) === date('Y-m-d')): ?>
-				<td> <a href="<?= action("InflowsController@delInflow",['id' => $inflow->id_inflow])?>"<i class="material-icons"> remove_circle </i> </a> </td>
+				<td> <a href="<?= action("InflowsController@delInflow",['id' => $inflow->id_inflow])?>"> <i class="material-icons"> remove_circle </i> </a> </td>
             <?php else: ?>
 				<td></td>
             <?php endif; ?>
