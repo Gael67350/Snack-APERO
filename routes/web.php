@@ -49,6 +49,7 @@ Route::group(['prefix' => 'stock'], function () {
     Route::get('showStock', 'ProductsController@displayStocks');
     Route::get('insertBuy', 'ProductsController@recordBuy');
     Route::get('verifyBuy', 'ProductsController@buyHistory');
+    Route::get('delPurchase', 'PurchasesController@delPur');
 });
 
 Route::group(['prefix' => 'consumption'], function () {

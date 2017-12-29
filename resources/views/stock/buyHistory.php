@@ -28,9 +28,9 @@
         foreach ($purchases as $purchase)
         {
           echo'<tr>';
-            if($purchase->transactionDate == date("jj-mm-aaaa hh:mm:ss"))
+            if($purchase->transactionDate == date("Y-m-d"))
             {
-              echo "<td> <i class=\"material-icons\"> remove_circle </i> </td>";
+              echo "<td> <a href=\"".action("PurchasesController@delPur",['id' => $purchase->id_purchase])."\"> <i class=\"material-icons\"> remove_circle </i> </a> </td>";
             }
             else
             {

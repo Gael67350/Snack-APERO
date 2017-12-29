@@ -47,4 +47,10 @@ class Purchase extends Model {
     {
       return \DB::table('purchase')->where(['id_purchase' => $id])->get();
     }
+
+    public static function deleteGroup($id)
+    {
+      \DB::table('purchase')->where('id_purchase',$id)->delete();
+    \DB::table('purchasegroup')->where('id_purchase',$id)->delete();
+    }
 }
