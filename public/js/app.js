@@ -8,7 +8,7 @@ var dynamicRow = {
     row: $('.dynamic-row'),
     id: 0,
     number: 0,
-    init: function (useData) {
+    init: function () {
         this.data = JSON.parse($('#dynamic-data')[0].textContent);
         var used = false;
 
@@ -32,25 +32,17 @@ var dynamicRow = {
                     used = true;
                 }
 
-                dynamicRow.row.find($('.unitPrice'))[0].textContent = dynamicRow.data[selectedValue - 1].price;
-                dynamicRow.row.find($('.totalRowPrice'))[0].textContent = dynamicRow.data[selectedValue - 1].price;
+                dynamicRow.calcTotalRowPrice(dynamicRow.row, selectedValue);
+                dynamicRow.calcTotalPrice(dynamicRow.row);
             }
         }));
 
         this.row.find($('.smallPicker').on({
             'change': function () {
-                var totalPrice = 0;
+                var selectedValue = dynamicRow.row.find($('select'))[0].value;
 
-                dynamicRow.row.find($('.totalRowPrice'))[0].textContent = parseFloat(dynamicRow.row.find($('.unitPrice'))[0].textContent) * dynamicRow.row.find($('.smallPicker'))[0].value;
-
-                for (var i = 0; i < $('.totalRowPrice').length; i++) {
-                    var elem = $('.totalRowPrice')[i];
-                    if (!isNaN(elem.textContent)) {
-                        totalPrice += parseFloat(elem.textContent);
-                    }
-                }
-
-                $('.totalPrice')[0].textContent = totalPrice;
+                dynamicRow.calcTotalRowPrice(dynamicRow.row, selectedValue);
+                dynamicRow.calcTotalPrice(dynamicRow.row)
             }
         }));
     },
@@ -64,6 +56,10 @@ var dynamicRow = {
         this.number++;
         this.root.append(clone);
         this.updateRow();
+
+        clone.find($('.smallPicker'))[0].value = 1;
+        clone.find($('.unitPrice'))[0].textContent = '--,--';
+        clone.find($('.totalRowPrice'))[0].textContent = '--,--';
 
         clone.find($('i'))[0].onclick = function () {
             if (dynamicRow.number - 1 > 0) {
@@ -81,29 +77,39 @@ var dynamicRow = {
                     used = true;
                 }
 
-                clone.find($('.unitPrice'))[0].textContent = dynamicRow.data[selectedValue - 1].price;
-                clone.find($('.totalRowPrice'))[0].textContent = dynamicRow.data[selectedValue - 1].price;
+                dynamicRow.calcTotalRowPrice(clone, selectedValue);
+                dynamicRow.calcTotalPrice(clone);
             }
         }));
 
         clone.find($('.smallPicker').on({
             'change': function () {
-                var totalPrice = 0;
+                var selectedValue = clone.find($('select'))[0].value;
 
-                clone.find($('.totalRowPrice'))[0].textContent = parseFloat(clone.find($('.unitPrice'))[0].textContent) * clone.find($('.smallPicker'))[0].value;
-
-                for (var i = 0; i < $('.totalRowPrice').length; i++) {
-                    var elem = $('.totalRowPrice')[i];
-                    if (!isNaN(elem.textContent)) {
-                        totalPrice += parseFloat(elem.textContent);
-                    }
-                }
-
-                $('.totalPrice')[0].textContent = totalPrice;
+                dynamicRow.calcTotalRowPrice(clone, selectedValue);
+                dynamicRow.calcTotalPrice(clone)
             }
         }));
     },
     updateRow: function () {
         this.row = $('.dynamic-row');
+    },
+    calcTotalRowPrice: function (elem, selectedValue) {
+        elem.find($('.unitPrice'))[0].textContent = dynamicRow.data[selectedValue - 1].price;
+        elem.find($('.totalRowPrice'))[0].textContent = dynamicRow.data[selectedValue - 1].price;
+    },
+    calcTotalPrice: function (elem) {
+        var totalPrice = 0;
+        elem.find($('.totalRowPrice'))[0].textContent = parseFloat(elem.find($('.unitPrice'))[0].textContent) * elem.find($('.smallPicker'))[0].value;
+
+        console.log($('.totalRowPrice').length);
+        for (var i = 0; i < ($('.totalRowPrice').length - 1); i++) {
+            var e = $('.totalRowPrice')[i];
+            if (!isNaN(e.textContent)) {
+                totalPrice += parseFloat(e.textContent);
+            }
+        }
+
+        $('.totalPrice')[0].textContent = totalPrice;
     }
 };
