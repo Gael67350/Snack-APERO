@@ -40,6 +40,7 @@ class ConsumptionsController extends Controller {
         $consumption = new Models\Consumption();
         $consumption->transactionDate = date('Y-m-d');
         $consumption->id_child = $child->id_child;
+        $consumption->id_consumption = DB::getPdo()->lastInsertId() + 1;
         $id = $consumption->save();
 
         var_dump($id);
