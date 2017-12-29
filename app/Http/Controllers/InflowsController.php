@@ -28,4 +28,10 @@ class InflowsController extends Controller {
       return \Redirect::Back();
     }
 
+    public function delInflow($id)
+    {
+      Models\Inflow::findOrFail($id)->delete();
+      return \Redirect::Back();
+    }
+
 }

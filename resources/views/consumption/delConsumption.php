@@ -31,8 +31,8 @@
 	<tbody>
     <?php foreach ($consumptions as $consumption): ?>
 		<tr>
-            <?php if ($consumption->transactionDate == date("Y-m-d")): ?>
-				<td><i class="material-icons"> remove_circle </i></td>
+            <?php if (date_format($consumption->transactionDate, 'Y-m-d') == date("Y-m-d")): ?>
+				<td>  <a href="<?= action("ConsumptionsController@delConsumption",['id' => $consumption->id_consumption])?>"> <i class="material-icons"> remove_circle </i></td> </a>
             <?php else: ?>
 				<td></td>
             <?php endif; ?>

@@ -30,7 +30,7 @@
         {
             echo Form::email('mail');
         }?>
-        <?=Form::label('mail', 'Montant de la recharge');?>
+        <?=Form::label('mail', 'Adresse email de l\'utilisateur');?>
   </div>
 
   <div class="input-field">
@@ -41,7 +41,7 @@
         }
         else
         {
-          echo Form::text('phone' , $managed->phone );
+          echo Form::text('phone');
         }?>
         <?=Form::label('phone', 'Numero de telephone')?>
   </div>

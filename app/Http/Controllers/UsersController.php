@@ -27,7 +27,8 @@ class UsersController extends Controller {
     }
 
     public function openUserManager($id) {
-        if (!is_null($id)) {
+        if ($id>=0)
+        {
             $person = Models\User::find($id);
             $childrenRelated = $person->children()->get();
             return $this->render('administration.personEdit', ['managed' => $person, 'childrenRelated' => $childrenRelated]);

@@ -45,4 +45,9 @@ class Consumption extends Model {
       return \DB::table('consumption')->where(['id_child' => $id])->get();
     }
 
+    public static function delConcerns($id)
+    {
+       \DB::table('concerns')->where('id_consumption', '=', $id)->delete();
+    }
+
 }

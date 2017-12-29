@@ -30,5 +30,5 @@
       la forme d'un aprovisionnement.
   </p>
 
-  <button type="button" class="waves-effect waves-light btn red"> Reinitialiser la base de données</button>
+  <a href="<?= action("Controller@reinit")?>" class="waves-effect waves-light btn red"> Reinitialiser la base de données</a>
 </div>

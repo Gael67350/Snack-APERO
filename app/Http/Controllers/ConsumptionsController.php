@@ -23,4 +23,11 @@ class ConsumptionsController extends Controller {
       $buyables = Models\Product::getAllBuyableComposed();
         return $this->render("consumption.delConsumption", ['child' => $child, 'consumptions' => $consumptions, 'buyable' => $buyables]);
     }
+
+    public function delConsumption($id)
+    {
+      Models\Consumption::delConcerns($id);
+      Models\Consumption::findOrFail($id)->delete();
+      return \Redirect::Back();
+    }
 }
