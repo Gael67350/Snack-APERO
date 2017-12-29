@@ -27,10 +27,4 @@ class Inflow extends Model {
     public function child() {
         return $this->belongsTo('App\Models\Child', 'id_child');
     }
-
-    public static function getAssociatedInflows($id)
-    {
-      return \DB::table('inflow')->where(['id_child' => $id])->get();
-    }
-
 }

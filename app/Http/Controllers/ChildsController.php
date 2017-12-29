@@ -16,10 +16,14 @@ class ChildsController extends Controller {
         return $this->render('child.display', compact('child'));
     }
 
-    public function openChildManager() {
-        $child = Models\Child::find($_GET['id']);
+    public function openChildManager($id) {
+        //$child = Models\Child::find($_GET['id']);
+        $child = Models\Child::findOrFail($id);
         $productUncomposed = Models\Product::getAllBuyableUncomposed();
         $productComposed = Models\Product::getAllBuyableComposed();
-        return $this->render('consumption.newConsumption', ['managed' => $child, "productComposed" => $productComposed, 'productUncomposed' => $productUncomposed]);
+
+        $json = json_encode(Models\Product::all());
+
+        return $this->render('consumption.newConsumption', ['child' => $child, "productComposed" => $productComposed, 'productUncomposed' => $productUncomposed, 'json' => $json]);
     }
 }
