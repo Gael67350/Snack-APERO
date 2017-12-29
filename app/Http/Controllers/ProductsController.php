@@ -34,9 +34,8 @@ class ProductsController extends Controller {
 
     public function recordBuy() {
       $productListUncomposed = Models\Product::getAllUncomposed();
-      $productListComposed = Models\Product::getAllcomposed();
 
-        return $this->render('stock.buyInsert',['productUncomposed' => $productListUncomposed, 'productComposed' => $productListComposed]);
+        return $this->render('stock.buyInsert',['productUncomposed' => $productListUncomposed]);
     }
 
 

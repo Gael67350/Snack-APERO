@@ -37,15 +37,7 @@
   		<td>
   			<select class="browser-default" name="productPicker">
   				<option value="" disabled selected>Sélectionnez un produit</option>
-
-  				<optgroup label="Produits Simples">
                       <?php foreach ($productUncomposed as $product): ?>
-  						<option value="<?= $product->id_product ?>"><?= $product->name ?></option>
-                      <?php endforeach; ?>
-  				</optgroup>
-
-  				<optgroup label="Produits composés">
-                      <?php foreach ($productComposed as $product): ?>
   						<option value="<?= $product->id_product ?>"><?= $product->name ?></option>
                       <?php endforeach; ?>
   				</optgroup>
@@ -59,3 +51,5 @@
   <button value="" class="waves-effect waves-light btn btn-spaced"> Valider L'insertion </button>
 
 </form>
+
+<script type="text/javascript" src="<?= asset('/js/buyInsert.js') ?>"></script>
