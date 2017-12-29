@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class ConsumptionsController extends Controller {
 
@@ -38,20 +39,20 @@ class ConsumptionsController extends Controller {
 
         $consumption = new Models\Consumption();
         $consumption->transactionDate = date('Y-m-d');
+        $consumption->id_child = $child->id_child;
+        $id = $consumption->save();
+
+        var_dump($id);
 
         for ($i = 0; $i < $request->number - 1; $i++) {
             $fieldName = "c" . $i;
             $fieldQuantityName = "q" . $i;
 
             if (isset($request->{$fieldName}) && isset($request->{$fieldQuantityName})) {
-                $consumption->products()->save(['id' => $child->id_child]);
-                $consumption->pivot->quantity = $request->{$fieldQuantityName};
-                $consumption->pivot->save();
+                DB::table('concerns')->insert(['id_consumption' => $id, 'id_product' => $request->{$fieldName}, 'quantity' => $request->{$fieldQuantityName}]);
             }
         }
 
-        $consumption->save();
-
-        return redirect(route('ConsumptionsController@showChildSrch', ['id' => $child->id_child]));
+        return redirect(route('delConsum', ['id' => $child->id_child]));
     }
 }

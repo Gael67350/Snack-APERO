@@ -55,7 +55,7 @@ Route::group(['prefix' => 'stock'], function () {
 Route::group(['prefix' => 'consumption'], function () {
     Route::get('srchChld', 'ConsumptionsController@showChildSrch');
     Route::get('nuConsum/{id}', 'ChildsController@openChildManager');
-    Route::get('delConsum/{id}', 'ConsumptionsController@showExistingConsumption');
+    Route::get('delConsum/{id}', 'ConsumptionsController@showExistingConsumption')->name('delConsum');
     Route::get('delConsum/validate/{id}',"ConsumptionsController@delConsumption");
     Route::get('insInflow/{id}', "InflowsController@openInflows");
     Route::post('insInflow/validate',"InflowsController@insertNewInflow");
