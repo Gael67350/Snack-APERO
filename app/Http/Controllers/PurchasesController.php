@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Auth;
+use App\Models;
 
 class PurchasesController extends Controller {
 
@@ -16,4 +17,9 @@ class PurchasesController extends Controller {
         return $this->render('administration.databaseReinitialiser');
     }
 
+    public function delPur()
+    {
+        Models\Purchase::deleteGroup($_GET['id']);
+        return \Redirect::Back();
+    }
 }

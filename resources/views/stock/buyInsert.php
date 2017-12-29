@@ -26,74 +26,30 @@
   <table class="striped">
     <thead>
       <tr>
+        <th></th>
         <th> produit </th>
         <th> quantité </th>
       </tr>
     </thead>
-    <tbody>
-      <tr>
-        <td>
-          <select class="browser-default" name="productPicker">
-          <option value="" disabled selected> selectionnez un produit </option>
-            <optgroup label="Produits Simples">
-                <option value="sucette">sucette</option>
-                <option value="painChoco">pain au chocolat</option>
-                <option value="can">canette au choix</option>
-            </optgroup>
-            <optgroup label="Produits composés">
-                <option value="menu1">Menu1</option>
-                <option value="menu 2">Menu 2</option>
-                <option value="painBarChoc">pain avec barette de chocolat</option>
-            </optgroup>
-          </select>
-        </td>
-        <td>
-          <input type="number" name="" value="00" min="0" step="1">
-        </td>
-      </tr>
-
-      <tr>
-        <td>
-          <select class="browser-default" name="productPicker">
-          <option value="" disabled selected> selectionnez un produit </option>
-            <optgroup label="Produits Simples">
-                <option value="sucette">sucette</option>
-                <option value="painChoco">pain au chocolat</option>
-                <option value="can">canette au choix</option>
-            </optgroup>
-            <optgroup label="Produits composés">
-                <option value="menu1">Menu1</option>
-                <option value="menu 2">Menu 2</option>
-                <option value="painBarChoc">pain avec barette de chocolat</option>
-            </optgroup>
-          </select>
-        </td>
-        <td>
-          <input type="number" name="" value="00" min="0" step="1">
-        </td>
-      </tr>
-      <tr>
-        <td>
-          <select class="browser-default" name="productPicker">
-          <option value="" disabled selected> selectionnez un produit </option>
-            <optgroup label="Produits Simples">
-                <option value="sucette">sucette</option>
-                <option value="painChoco">pain au chocolat</option>
-                <option value="can">canette au choix</option>
-            </optgroup>
-            <optgroup label="Produits composés">
-                <option value="menu1">Menu1</option>
-                <option value="menu 2">Menu 2</option>
-                <option value="painBarChoc">pain avec barette de chocolat</option>
-            </optgroup>
-          </select>
-        </td>
-        <td>
-        </td>
-      </tr>
-    </tbody>
+    <tbody id='dynamic-rows-table'>
+  	<tr class="dynamic-row">
+  		<td><i class="material-icons"> remove_circle </i></td>
+  		<td>
+  			<select class="browser-default" name="productPicker">
+  				<option value="" disabled selected>Sélectionnez un produit</option>
+                      <?php foreach ($productUncomposed as $product): ?>
+  						<option value="<?= $product->id_product ?>"><?= $product->name ?></option>
+                      <?php endforeach; ?>
+  				</optgroup>
+  			</select>
+  		</td>
+  		<td><?= Form::number('qqtprodx', 1, ['min' => 1, 'class' => 'smallPicker']) ?></td>
+  	</tr>
+  	</tbody>
   </table>
 
   <button value="" class="waves-effect waves-light btn btn-spaced"> Valider L'insertion </button>
 
 </form>
+
+<script type="text/javascript" src="<?= asset('/js/buyInsert.js') ?>"></script>

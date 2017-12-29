@@ -11,6 +11,7 @@
 		<link rel="stylesheet" href="<?= asset('/css/main.css') ?>">
 		<link rel="stylesheet" href="<?= asset('/css/materialize.css') ?>">
 		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+		<script type="text/javascript" src="<?= asset('/js/jquery-3.2.1.min.js') ?>"></script>
 	</head>
 
 	<body>
@@ -56,8 +57,6 @@
 		<div class="container">
             <?= $content ?>
 		</div>
-
-		<script type="text/javascript" src="<?= asset('/js/jquery-3.2.1.min.js') ?>"></script>
 		<script type="text/javascript" src="<?= asset('js/materialize.min.js') ?>"></script>
 
 	</body>

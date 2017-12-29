@@ -20,7 +20,7 @@ class ConsumptionsController extends Controller {
     {
         $child = Models\Child::findOrFail($id);
         $consumptions = $child->consumptions()->get();
-      $buyables = Models\Product::getAllBuyableComposed();
+        $buyables = Models\Product::getAllBuyableComposed();
         return $this->render("consumption.delConsumption", ['child' => $child, 'consumptions' => $consumptions, 'buyable' => $buyables]);
     }
 
