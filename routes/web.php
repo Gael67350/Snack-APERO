@@ -37,6 +37,7 @@ Route::group(['prefix' => 'admin', 'middleware' => AuthenticatedAsAdmin::class],
     Route::get('reinitDb', 'PurchasesController@initDbReinitialiser');
     Route::get('productMgr', 'ProductsController@openManager');
     Route::get('userMgr/{id?}', 'UsersController@openUserManager');
+    Route::get('reset}', 'Controller@reinit');
 });
 
 Route::group(['prefix' => 'children'], function () {
@@ -57,5 +58,5 @@ Route::group(['prefix' => 'consumption'], function () {
     Route::get('delConsum/validate/{id}',"ConsumptionsController@delConsumption");
     Route::get('insInflow/{id}', "InflowsController@openInflows");
     Route::post('insInflow/validate',"InflowsController@insertNewInflow");
-      Route::get('delInflow/{id}', 'InflowsController@delInflow');
+    Route::get('delInflow/{id}', 'InflowsController@delInflow');
 });
