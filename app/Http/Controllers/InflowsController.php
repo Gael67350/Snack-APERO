@@ -2,9 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Models;
-use Auth;
+use Illuminate\Http\Request;
 
 class InflowsController extends Controller {
 
@@ -12,10 +11,10 @@ class InflowsController extends Controller {
 
     }
 
-    public function openInflows()
+    public function openInflows($id)
     {
-      $child = Models\Child::find($_GET['id']);
-      $inflows = Models\Inflow::getAssociatedInflows($child->id_child);
+        $child = Models\Child::findOrFail($id);
+        $inflows = $child->inflows->get();
       return $this->render("consumption.inflowRefill" , ['managed' => $child , 'inflows' => $inflows]);
     }
 
