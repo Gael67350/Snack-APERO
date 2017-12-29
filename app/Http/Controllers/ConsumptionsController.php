@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Models;
 
 class ConsumptionsController extends Controller {
@@ -17,11 +16,11 @@ class ConsumptionsController extends Controller {
       return $this->render("consumption.childSearch", ['childs' => $childs]);
     }
 
-    public function showExistingConsumption()
+    public function showExistingConsumption($id)
     {
-      $child = Models\Child::find($_GET['id']);
-      $consumptions = Models\Consumption::getRelatedConsumption($child->id_child);
+        $child = Models\Child::findOrFail($id);
+        $consumptions = $child->consumptions()->get();
       $buyables = Models\Product::getAllBuyableComposed();
-      return $this->render("consumption.delConsumption" , ['managed' => $child , 'associatedConsumption' => $consumptions , 'buyable' => $buyables]);
+        return $this->render("consumption.delConsumption", ['child' => $child, 'consumptions' => $consumptions, 'buyable' => $buyables]);
     }
 }

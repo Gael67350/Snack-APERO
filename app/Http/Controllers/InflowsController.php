@@ -14,8 +14,8 @@ class InflowsController extends Controller {
     public function openInflows($id)
     {
         $child = Models\Child::findOrFail($id);
-        $inflows = $child->inflows->get();
-      return $this->render("consumption.inflowRefill" , ['managed' => $child , 'inflows' => $inflows]);
+        $inflows = $child->inflows()->get();
+        return $this->render("consumption.inflowRefill", ['child' => $child, 'inflows' => $inflows]);
     }
 
     public function insertNewInflow(Request $request)
