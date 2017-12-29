@@ -28,7 +28,7 @@
       </div>
       </label>
 </div>
-    <a href="<?=action("UsersController@openUserManager")?>" class="waves-effect waves-light btn"> Créer un nouveau compte utilisateur </a>
+    <a href="<?=action("UsersController@openUserManager",['id'=>-10])?>" class="waves-effect waves-light btn"> Créer un nouveau compte utilisateur </a>
     <table class="striped">
         <thead>
           <tr>

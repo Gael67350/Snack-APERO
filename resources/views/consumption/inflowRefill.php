@@ -42,12 +42,12 @@
 	<tbody>
     <?php foreach ($inflows as $inflow): ?>
 		<tr>
-            <?php if ($inflow->transactionDate == date('Y-m-d')): ?>
-				<td><i class="material-icons"> remove_circle </i></td>
+            <?php if (date("Y-m-d", strtotime($inflow->transactionDate)) === date('Y-m-d')): ?>
+				<td> <a href="<?= action("InflowsController@delInflow",['id' => $inflow->id_inflow])?>"<i class="material-icons"> remove_circle </i> </a> </td>
             <?php else: ?>
 				<td></td>
             <?php endif; ?>
-			<td><?= $inflow->transactionDate ?></td>
+			<td><?= date("Y-m-d", strtotime($inflow->transactionDate)) ?></td>
 			<td><?= $inflow->amount ?></td>
 		</tr>
     <?php endforeach; ?>
